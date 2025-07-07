@@ -5,6 +5,10 @@ export const App = () => {
   return (
     <>
       <Button>Click me</Button>
+      <Button>Click me</Button>
+      <Button>Click me</Button>
+      <Button>Click me</Button>
+      <Button>Click me</Button>
     </>
   )
 }
