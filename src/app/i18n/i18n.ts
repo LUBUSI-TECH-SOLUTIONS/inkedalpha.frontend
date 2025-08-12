@@ -16,6 +16,16 @@ const resources = {
       change_Language: "Cambiar idioma",
       comming_soon: "Próximamente...",
       search: "Buscar..",
+      header: {
+        shop: "Tienda",
+        categories: {
+          category: "Categoría",
+          tropical: "Tropical",
+          urban: "Urbano",
+        },
+        about: "Nosotros",
+
+      }
     },
   },
   en: {
@@ -24,6 +34,15 @@ const resources = {
       change_Language: "Change Language",
       comming_soon: "Coming soon...",
       search: "Search..",
+      header: {
+        shop: "Shop",
+        categories: {
+          category: "Category",
+          tropical: "Tropical",
+          urban: "Urban",
+        },
+        about: "About",
+      }
     }
   }
 }
