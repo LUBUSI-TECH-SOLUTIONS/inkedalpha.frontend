@@ -1,4 +1,5 @@
 import i18n from 'i18next';
+import { Search } from 'lucide-react';
 import { initReactI18next } from 'react-i18next';
 /**
  * Internationalization (i18n) configuration for the application.
@@ -24,7 +25,7 @@ const resources = {
           urban: "Urbano",
         },
         about: "Nosotros",
-
+        Search: "Buscar...",
       }
     },
   },
@@ -42,6 +43,7 @@ const resources = {
           urban: "Urban",
         },
         about: "About",
+        Search: "Search...",
       }
     }
   }
