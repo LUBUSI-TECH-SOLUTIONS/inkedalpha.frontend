@@ -24,7 +24,12 @@ const resources = {
           urban: "Urbano",
         },
         about: "Nosotros",
-
+        Search: "Buscar...",
+      },
+      home: {
+        hero: {
+          words: ["ESTILO", "ACTITUD", "CALLE", "REBELDÍA", "INKEDALPHA"],
+        },
       }
     },
   },
@@ -42,6 +47,12 @@ const resources = {
           urban: "Urban",
         },
         about: "About",
+        Search: "Search...",
+      },
+      home: {
+        hero: {
+          words: ["STYLE", "ATTITUDE", "STREET", "REBELLION", "INKEDALPHA"],
+        },
       }
     }
   }
