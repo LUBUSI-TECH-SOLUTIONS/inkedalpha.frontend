@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { TypewriterText } from "./typewriterText"
+import { TypewriterText } from "@/app/components/typewriterText";
 
 export const HeroSection = () => {
 
@@ -30,6 +30,9 @@ export const HeroSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Gradient overlay */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/90 to-transparent z-5" />
     </section>
   )
 }

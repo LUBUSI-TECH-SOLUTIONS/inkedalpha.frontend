@@ -30,7 +30,14 @@ const resources = {
         hero: {
           words: ["ESTILO", "ACTITUD", "CALLE", "REBELDÍA", "INKEDALPHA"],
         },
-      }
+        categoryShowcase: {
+          title: "EXPLORA POR",
+          titleHighlight: "ESTILO",
+          subtitle: "Encuentra tu identidad a través de nuestras cuatro categorías únicas",
+          pieces: "PIEZAS",
+          viewAll: "VER TODAS LAS CATEGORÍAS",
+        },
+      },
     },
   },
   en: {
@@ -53,7 +60,14 @@ const resources = {
         hero: {
           words: ["STYLE", "ATTITUDE", "STREET", "REBELLION", "INKEDALPHA"],
         },
-      }
+        categoryShowcase: {
+          title: "EXPLORE BY",
+          titleHighlight: "STYLE",
+          subtitle: "Find your identity through our four unique categories",
+          pieces: "PIECES",
+          viewAll: "VIEW ALL CATEGORIES",
+        },
+      },
     }
   }
 }

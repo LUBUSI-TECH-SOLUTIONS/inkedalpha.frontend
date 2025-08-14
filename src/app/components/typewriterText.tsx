@@ -1,4 +1,4 @@
-import { useTypewriter, type TypewriterTextProps } from "@/features/home/hooks/useTypewriter";
+import { useTypewriter, type TypewriterTextProps } from "@/app/hooks/useTypewriter";
 
 
 export const TypewriterText = ({
