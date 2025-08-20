@@ -58,6 +58,35 @@ const resources = {
           }
         }
       },
+      footer: {
+        description: "Ropa urbana que expresa tu identidad. Irreverente, creativa y única.",
+        shop: {
+          title: "Tienda",
+          men: "Hombre",
+          women: "Mujer",
+          accessories: "Accesorios",
+          new: "Novedades",
+        },
+        support: {
+          title: "Soporte",
+          contact: "Contacto",
+          shipping: "Envíos",
+          returns: "Devoluciones",
+          sizeGuide: "Guía de tallas",
+        },
+        newsletter: {
+          title: "Boletín",
+          description: "Suscríbete para recibir las últimas novedades y ofertas exclusivas.",
+          placeholder: "Tu correo electrónico",
+          subscribe: "Suscribirse",
+        },
+        legal: {
+          rights: "Todos los derechos reservados.",
+          privacy: "Privacidad",
+          terms: "Términos",
+          cookies: "Cookies",
+        }
+      }
     },
   },
   en: {
@@ -107,6 +136,35 @@ const resources = {
           }
         }
       },
+      footer: {
+        description: "Urban clothing that expresses your identity. Irreverent, creative, and unique.",
+        shop: {
+          title: "Shop",
+          men: "Men",
+          women: "Women",
+          accessories: "Accessories",
+          new: "New Releases",
+        },
+        support: {
+          title: "Support",
+          contact: "Contact",
+          shipping: "Shipping",
+          returns: "Returns",
+          sizeGuide: "Size Guide",
+        },
+        newsletter: {
+          title: "Newsletter",
+          description: "Subscribe to receive the latest news and exclusive offers.",
+          placeholder: "Your email",
+          subscribe: "Subscribe",
+        },
+        legal: {
+          rights: "All rights reserved.",
+          privacy: "Privacy",
+          terms: "Terms",
+          cookies: "Cookies",
+        },
+      }
     }
   }
 }

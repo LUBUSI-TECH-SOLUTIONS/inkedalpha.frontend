@@ -1,4 +1,3 @@
-import { getProductsByCategory } from "@/app/dataExample/products";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
