@@ -30,6 +30,62 @@ const resources = {
         hero: {
           words: ["ESTILO", "ACTITUD", "CALLE", "REBELDÍA", "INKEDALPHA"],
         },
+        categoryShowcase: {
+          title: "EXPLORA POR",
+          titleHighlight: "ESTILO",
+          subtitle: "Encuentra tu identidad a través de nuestras cuatro categorías únicas",
+          pieces: "PIEZAS",
+          viewAll: "VER TODAS LAS CATEGORÍAS",
+
+        },
+        header: {
+          title_first: "ARTE EN",
+          title_second: "MOVIMIENTO",
+          description: "InkedAlpha nace de las calles, del arte urbano que no pide permiso. Cada prenda es un lienzo donde el graffiti cobra vida, donde la rebeldía se viste de estilo y la creatividad no tiene límites.",
+          features: {
+            unique_design: {
+              title: "DISEÑO ÚNICO",
+              description: "Cada pieza es una obra de arte original, inspirada en el graffiti urbano y la cultura callejera."
+            },
+            premium_quality: {
+              title: "CALIDAD PREMIUM",
+              description: "Utilizamos materiales de alta calidad para garantizar durabilidad y comodidad en cada prenda."
+            },
+            rebellious_identity: {
+              title: "IDENTIDAD REBELDE",
+              description: "Para quienes no siguen tendencias, sino que las crean. Para los que se atreven a ser diferentes."
+            }
+          }
+        }
+      },
+      footer: {
+        description: "Ropa urbana que expresa tu identidad. Irreverente, creativa y única.",
+        shop: {
+          title: "Tienda",
+          men: "Hombre",
+          women: "Mujer",
+          accessories: "Accesorios",
+          new: "Novedades",
+        },
+        support: {
+          title: "Soporte",
+          contact: "Contacto",
+          shipping: "Envíos",
+          returns: "Devoluciones",
+          sizeGuide: "Guía de tallas",
+        },
+        newsletter: {
+          title: "Boletín",
+          description: "Suscríbete para recibir las últimas novedades y ofertas exclusivas.",
+          placeholder: "Tu correo electrónico",
+          subscribe: "Suscribirse",
+        },
+        legal: {
+          rights: "Todos los derechos reservados.",
+          privacy: "Privacidad",
+          terms: "Términos",
+          cookies: "Cookies",
+        }
       }
     },
   },
@@ -52,6 +108,61 @@ const resources = {
       home: {
         hero: {
           words: ["STYLE", "ATTITUDE", "STREET", "REBELLION", "INKEDALPHA"],
+        },
+        categoryShowcase: {
+          title: "EXPLORE BY",
+          titleHighlight: "STYLE",
+          subtitle: "Find your identity through our four unique categories",
+          pieces: "PIECES",
+          viewAll: "VIEW ALL CATEGORIES",
+        },
+        header: {
+          title_first: "ART IN",
+          title_second: "MOVEMENT",
+          description: "InkedAlpha is born from the streets, from urban art that doesn't ask for permission. Each garment is a canvas where graffiti comes to life, where rebellion dresses in style, and creativity knows no limits.",
+          features: {
+            unique_design: {
+              title: "UNIQUE DESIGN",
+              description: "Each piece is an original work of art, inspired by urban graffiti and street culture."
+            },
+            premium_quality: {
+              title: "PREMIUM QUALITY",
+              description: "We use high-quality materials to ensure durability and comfort in every garment."
+            },
+            rebellious_identity: {
+              title: "REBELLIOUS IDENTITY",
+              description: "For those who don't follow trends, but create them. For those who dare to be different."
+            }
+          }
+        }
+      },
+      footer: {
+        description: "Urban clothing that expresses your identity. Irreverent, creative, and unique.",
+        shop: {
+          title: "Shop",
+          men: "Men",
+          women: "Women",
+          accessories: "Accessories",
+          new: "New Releases",
+        },
+        support: {
+          title: "Support",
+          contact: "Contact",
+          shipping: "Shipping",
+          returns: "Returns",
+          sizeGuide: "Size Guide",
+        },
+        newsletter: {
+          title: "Newsletter",
+          description: "Subscribe to receive the latest news and exclusive offers.",
+          placeholder: "Your email",
+          subscribe: "Subscribe",
+        },
+        legal: {
+          rights: "All rights reserved.",
+          privacy: "Privacy",
+          terms: "Terms",
+          cookies: "Cookies",
         },
       }
     }

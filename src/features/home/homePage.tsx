@@ -1,11 +1,14 @@
 import { HeroSection } from "@/features/home/components/hero";
+import { CategoryShowcase } from "./components/category";
 
 const HomePage = () => {
    return (
-      <section>
+      <main className="min-h-screen bg-black">
          {/* Hero  */}
          <HeroSection/>
-      </section>
+         {/* Category Showcase */}
+         <CategoryShowcase/>
+      </main>
    )
 };
 
