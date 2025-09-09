@@ -1,6 +1,6 @@
-// import type { Product } from "@/entities/product/types"
+import type { Product } from "@/entities/product/types";
 
-export const products = [
+export const products: Product[] = [
   {
     id: "1",
     name: "AVARICIA MONEY SHIRT",

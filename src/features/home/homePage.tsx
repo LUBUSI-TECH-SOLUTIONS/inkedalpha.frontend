@@ -1,5 +1,6 @@
-import { HeroSection } from "@/features/home/components/hero";
+import { HeroSection } from "@/components/ui/hero";
 import { CategoryShowcase } from "./components/category";
+import { Products } from "./components/products";
 
 const HomePage = () => {
    return (
@@ -8,6 +9,8 @@ const HomePage = () => {
          <HeroSection/>
          {/* Category Showcase */}
          <CategoryShowcase/>
+         {/* Products Section */}
+         <Products />
       </main>
    )
 };

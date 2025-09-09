@@ -1,7 +1,20 @@
 import { useTranslation } from "react-i18next";
 import { TypewriterText } from "@/app/components/typewriterText";
 
-export const HeroSection = () => {
+interface HeroSectionProps {
+  bannerImage?: string;
+  typewriterWords?: string[];
+}
+
+export const HeroSection = ({
+  bannerImage = "/background/bg_one.webp",
+  typewriterWords = [
+    "accessories",
+    "gadgets",
+    "electronics",
+    "smart devices",
+  ],
+}: HeroSectionProps) => {
 
   const { t } = useTranslation();
 
@@ -10,18 +23,18 @@ export const HeroSection = () => {
       {/* Banner */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/background/bg_one.webp"
+          src={bannerImage}
           alt="Background default"
           className="object-cover w-full h-full"
         />
-        <div className="absolute inset-0 bg-black/40"/>
+        <div className="absolute inset-0 bg-black/40" />
       </div>
       {/* typewriter effect */}
       <div className="relative z-10 flex items-center justify-center">
         <div className="text-center">
           <div className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-family-heading brand-heading text-white">
             <TypewriterText
-              words={t('home.hero.words', { returnObjects: true }) as string[]}
+              words={typewriterWords.length > 0 ? typewriterWords : [t("hero.typewriter.default")]}
               typeSpeed={120}
               deleteSpeed={80}
               delayBetweenWords={2000}
