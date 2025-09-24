@@ -16,13 +16,13 @@ export const MetricsDisplay: React.FC = () => {
   }>;
 
   return (
-    <div className="grid grid-cols-2 grid-rows-2 gap-4 text-center">
+    <div className="flex flex-wrap justify-center w-full gap-0.5">
       {metrics.map((metric) => (
         <div 
           key={metric.key} // Usar la key única para el key de React
-          className="flex flex-col items-center justify-center font-family-heading"
+          className="flex flex-col items-center bg-white/10 backdrop:blur-2xl justify-center font-family-heading p-4 w-64 hover:bg-ink-600 transition-all duration-300"
         >
-          <div className="text-3xl font-bold">
+          <div className="text-4xl font-bold">
             {metric.value}
           </div>
           <div className="text-sm">

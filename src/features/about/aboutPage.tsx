@@ -1,46 +1,44 @@
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Button } from "@/components/ui/button";
 import { MetricsDisplay } from "@/components/ui/metrics-display";
 import { useTranslation } from "react-i18next";
-
+import { StoryBlock } from "./components/storyBlock";
+import { CarouselInfo } from "./components/carouselInfo";
 
 const AboutPage = () => {
-	const {t} = useTranslation();
-	return (
-		<section className="min-h-screen bg-gradient-to-bl from-black via-ink-700/80 to-black flex flex-col items-center justify-center">
-			<div className="w-5xl h-full grid grid-cols-2 grid-rows-2 gap-4 p-4 items-center justify-center">
-				{/* Image */}
-				<AspectRatio>	
-					<img
-						src="/images/banners/about_one.jpg"
-						alt="About us image 1"
-						className="object-cover w-full h-full rounded-lg shadow-lg"
-					/>
-				</AspectRatio>
-				{/* Text Content */}
-				<div>
-					<h2 className="text-2xl md:text-4xl font-family-heading">{t("about.our_mission")}</h2>
-					<p className="mt-2 text-gray-300">
-						{t("about.mission_description")}
-					</p>
-					<Button className="mt-4" variant="outline">{t("about.see_more")}</Button>
-				</div>
-				{/* Que hacemos */}
-				<div>
-					<h2 className="text-2xl md:text-4xl font-family-heading">{t("about.who_we_are")}</h2>
-					<p className="mt-2 text-gray-300">
-						{t("about.characteristics_description")}
-					</p>
-					<div className="flex space-x-4 mt-4">
-					</div>
-				</div>
-				{/* Metricas */}
-				<div>
-					<MetricsDisplay />
-				</div>
-			</div>
-		</section>
-	)
+  const { t } = useTranslation();
+
+  const blocks = t("about.about_us", { returnObjects: true }) as Array<{
+    title: string;
+    description: string;
+  }>
+  return (
+    <section className="min-h-screen bg-gradient-to-bl from-black via-ink-700/80 to-black flex flex-col items-center justify-center gap-10 py-10">
+      <div className="w-full text-center flex flex-col items-center justify-center">
+        <img
+          src="/images/logo/inkedalpha-logo.webp"
+          alt="InkedAlpha"
+          className="w-74 h-74 object-contain filter brightness-0 invert"
+        />
+        <h2 className="text-6xl font-family-heading neon-text urban-text-shadow">
+          InkedAlpha
+        </h2>
+        <p className="text-gray-300 font-semibold">{t("about.description")}</p>
+      </div>
+      {
+        blocks.map((block, index) => (
+          <StoryBlock
+            key={index}
+            title={block.title}
+            description={block.description}
+            image="/images/banners/about_one.jpg"
+            side={index % 2 === 0 ? "left" : "right"}
+            size={index % 2 === 0 ? "lg" : "sm"}
+          />
+        ))
+      }
+      <MetricsDisplay />
+      <CarouselInfo />
+    </section>
+  );
 };
 
 export default AboutPage;

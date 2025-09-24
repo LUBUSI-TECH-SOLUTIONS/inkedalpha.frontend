@@ -70,6 +70,7 @@ const resources = {
         },
       },
       about: {
+        description: "Ropa y tatuajes urbanos que expresan tu identidad. Irreverente, creativo y único.",
         our_mission: "Nuestra Misión",
         mission_description:
           "En InkedAlpha, nuestra misión es ofrecer productos y tatuajes de alta calidad que combinen tecnología, arte y estilo, brindando a nuestros clientes una experiencia única y satisfactoria.",
@@ -84,6 +85,28 @@ const resources = {
           style: "Estilo",
           rebellion: "Rebeldía",
         },
+        about_us: [
+          {
+            title: "Origen de la marca",
+            description: "InkedAlpha nació gracias a la visión de Giancarlo Bianchini, conocido como 'G'. Cansado de ver siempre las mismas propuestas en la moda, decidió crear una marca que rompiera las reglas y diera voz a quienes quieren marcar su propio estilo."
+          },
+          {
+            title: "Filosofía de diseño",
+            description: "Nuestra esencia combina lo mejor de la cultura urbana y el arte del tatuaje. Cada prenda refleja rebeldía, autenticidad y un lenguaje visual que conecta con quienes no siguen tendencias, sino que las crean."
+          },
+          {
+            title: "Diferenciación",
+            description: "En InkedAlpha creemos que la moda no debe sacrificar comodidad, calidad ni estilo. Diseñamos ropa con materiales de primera y un enfoque funcional, para que cada pieza se sienta tan bien como se ve."
+          },
+          {
+            title: "Proceso creativo",
+            description: "Cada colección es un proceso minucioso: desde la idea inicial, pasando por los bocetos inspirados en tatuajes, hasta la selección de paletas de colores. Todo está pensado para crear prendas únicas y cargadas de personalidad."
+          },
+          {
+            title: "Exclusividad",
+            description: "Creemos que lo exclusivo tiene más valor. Por eso, la mayoría de nuestras piezas se producen en ediciones limitadas y muchas solo se fabrican una única vez. Vestir InkedAlpha es vestir algo realmente tuyo."
+          }
+        ],
 
         metrics: [
           { key: "products", label: "Productos", value: "500+" },
@@ -188,14 +211,38 @@ const resources = {
         },
       },
       about: {
+        description: "Urban clothing and tattoos that express your identity. Irreverent, creative, and unique.",
         our_mission: "Our Mission",
         mission_description:
           "At InkedAlpha, our mission is to offer high-quality products and tattoos that combine technology, art, and style, providing our clients with a unique and satisfying experience.",
-
+        see_more: "See more",
         who_we_are: "Who we are",
         characteristics_description:
           "InkedAlpha is more than a store; it's a community for lovers of urban art and tattoos. We are dedicated to offering products that reflect the essence of street culture, combining fashion, technology, and creativity in every design.",
         characteristics: ["Quality", "Innovation", "Style", "Rebellion"],
+        about_us: [
+          {
+            title: "Brand Origin",
+            description: "InkedAlpha was born from the vision of Giancarlo Bianchini, known as 'G'. Tired of seeing the same fashion proposals, he decided to create a brand that would break the rules and give voice to those who want to define their own style."
+            
+          },
+          {
+            title: "Design Philosophy",
+            description: "Our essence combines the best of urban culture and tattoo art. Each garment reflects rebellion, authenticity, and a visual language that connects with those who don’t follow trends but create them."
+          },
+          {
+            title: "Differentiation",
+            description: "At InkedAlpha we believe fashion should never sacrifice comfort, quality, or style. We design clothing with premium materials and a functional approach, so every piece feels as good as it looks."
+          },
+          {
+            title: "Creative Process",
+            description: "Each collection is a meticulous process: from the initial idea, through sketches inspired by tattoos, to the selection of color palettes. Everything is crafted to create unique garments full of personality."
+          },
+          {
+            title: "Exclusivity",
+            description: "We believe exclusivity has greater value. That’s why most of our pieces are produced in limited editions, and many are made only once. Wearing InkedAlpha means wearing something truly yours."
+          }
+        ],
         metrics: [
           { key: "products", label: "Products", value: "500+" },
           {
