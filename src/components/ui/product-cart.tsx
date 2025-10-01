@@ -16,7 +16,7 @@ export const ProductCart = ({
   return (
     <Link to={`/product/${product.id}`}>
       <Card
-        className="relative w-[420px] h-[620px] rounded-2xl shadow-lg overflow-hidden p-0 border border-transparent hover:border-ink-500 transition-all duration-300 hover:scale-105">
+        className="relative w-[420px] h-[620px] rounded shadow-lg overflow-hidden p-0 border border-transparent hover:border-ink-500 transition-all duration-300 hover:scale-105">
         {/* Imagen de fondo */}
         <img
           src={product.image}
