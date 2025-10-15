@@ -70,7 +70,7 @@ const resources = {
         },
       },
       about: {
-        description: "Ropa y tatuajes urbanos que expresan tu identidad. Irreverente, creativo y único.",
+        description: "Ropa y tatuajes urbanos que expresan tu identidad. creativo y único.",
         our_mission: "Nuestra Misión",
         mission_description:
           "En InkedAlpha, nuestra misión es ofrecer productos y tatuajes de alta calidad que combinen tecnología, arte y estilo, brindando a nuestros clientes una experiencia única y satisfactoria.",
@@ -88,15 +88,18 @@ const resources = {
         about_us: [
           {
             title: "Origen de la marca",
-            description: "InkedAlpha nació gracias a la visión de Giancarlo Bianchini, conocido como 'G'. Cansado de ver siempre las mismas propuestas en la moda, decidió crear una marca que rompiera las reglas y diera voz a quienes quieren marcar su propio estilo."
+            description: "InkedAlpha nació gracias a la visión de Giancarlo Bianchini, conocido como 'G'. Cansado de ver siempre las mismas propuestas en la moda, decidió crear una marca que rompiera las reglas y diera voz a quienes quieren marcar su propio estilo.",
+            img: "/images/about/about-one.webp"     
           },
           {
             title: "Filosofía de diseño",
-            description: "Nuestra esencia combina lo mejor de la cultura urbana y el arte del tatuaje. Cada prenda refleja rebeldía, autenticidad y un lenguaje visual que conecta con quienes no siguen tendencias, sino que las crean."
+            description: "Nuestra esencia combina lo mejor de la cultura urbana y el arte del tatuaje. Cada prenda refleja rebeldía, autenticidad y un lenguaje visual que conecta con quienes no siguen tendencias, sino que las crean.",
+            img: "/images/about/about-two.webp"
           },
           {
             title: "Diferenciación",
-            description: "En InkedAlpha creemos que la moda no debe sacrificar comodidad, calidad ni estilo. Diseñamos ropa con materiales de primera y un enfoque funcional, para que cada pieza se sienta tan bien como se ve."
+            description: "En InkedAlpha creemos que la moda no debe sacrificar comodidad, calidad ni estilo. Diseñamos ropa con materiales de primera y un enfoque funcional, para que cada pieza se sienta tan bien como se ve.",
+            img: "/images/about/about-three.webp"
           },
           {
             title: "Proceso creativo",
@@ -121,7 +124,7 @@ const resources = {
       },
       footer: {
         description:
-          "Ropa y tatuajes urbanos que expresan tu identidad. Irreverente, creativo y único.",
+          "Ropa y tatuajes urbanos que expresan tu identidad, creativo y único.",
         shop: {
           title: "Tienda",
           men: "Hombre",
@@ -211,7 +214,7 @@ const resources = {
         },
       },
       about: {
-        description: "Urban clothing and tattoos that express your identity. Irreverent, creative, and unique.",
+        description: "Urban clothing and tattoos that express your identity creative, and unique.",
         our_mission: "Our Mission",
         mission_description:
           "At InkedAlpha, our mission is to offer high-quality products and tattoos that combine technology, art, and style, providing our clients with a unique and satisfying experience.",
@@ -223,16 +226,18 @@ const resources = {
         about_us: [
           {
             title: "Brand Origin",
-            description: "InkedAlpha was born from the vision of Giancarlo Bianchini, known as 'G'. Tired of seeing the same fashion proposals, he decided to create a brand that would break the rules and give voice to those who want to define their own style."
-            
+            description: "InkedAlpha was born from the vision of Giancarlo Bianchini, known as 'G'. Tired of seeing the same fashion proposals, he decided to create a brand that would break the rules and give voice to those who want to define their own style.",
+            img: "/images/about/about-one.webp"          
           },
           {
             title: "Design Philosophy",
-            description: "Our essence combines the best of urban culture and tattoo art. Each garment reflects rebellion, authenticity, and a visual language that connects with those who don’t follow trends but create them."
+            description: "Our essence combines the best of urban culture and tattoo art. Each garment reflects rebellion, authenticity, and a visual language that connects with those who don’t follow trends but create them.",
+            img: "/images/about/about-two.webp"
           },
           {
             title: "Differentiation",
-            description: "At InkedAlpha we believe fashion should never sacrifice comfort, quality, or style. We design clothing with premium materials and a functional approach, so every piece feels as good as it looks."
+            description: "At InkedAlpha we believe fashion should never sacrifice comfort, quality, or style. We design clothing with premium materials and a functional approach, so every piece feels as good as it looks.",
+            img: "/images/about/about-three.webp"
           },
           {
             title: "Creative Process",
@@ -260,7 +265,7 @@ const resources = {
       },
       footer: {
         description:
-          "Urban clothing and tattoos that express your identity. Irreverent, creative, and unique.",
+          "Urban clothing and tattoos that express your identity. creative, and unique.",
         shop: {
           title: "Shop",
           men: "Men",
