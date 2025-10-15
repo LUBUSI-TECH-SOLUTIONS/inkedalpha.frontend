@@ -9,6 +9,7 @@ const AboutPage = () => {
   const blocks = t("about.about_us", { returnObjects: true }) as Array<{
     title: string;
     description: string;
+    img: string;
   }>
   return (
     <section className="min-h-screen bg-gradient-to-bl from-black via-ink-700/80 to-black flex flex-col items-center justify-center gap-10 py-10">
@@ -29,7 +30,7 @@ const AboutPage = () => {
             key={index}
             title={block.title}
             description={block.description}
-            image="/images/banners/about_one.jpg"
+            image={block.img || "/images/banners/about_one.jpg"}
             side={index % 2 === 0 ? "left" : "right"}
             size={index % 2 === 0 ? "lg" : "sm"}
           />
