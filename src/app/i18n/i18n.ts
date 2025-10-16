@@ -18,11 +18,7 @@ const resources = {
       search: "Buscar..",
       header: {
         shop: "Tienda",
-        categories: {
-          category: "Categoría",
-          tropical: "Tropical",
-          urban: "Urbano",
-        },
+        categories: "Categorías",
         about: "Nosotros",
         Search: "Buscar...",
       },
@@ -163,11 +159,7 @@ const resources = {
       search: "Search..",
       header: {
         shop: "Shop",
-        categories: {
-          category: "Category",
-          tropical: "Tropical",
-          urban: "Urban",
-        },
+        categories: "Categories",
         about: "About",
         Search: "Search...",
       },
