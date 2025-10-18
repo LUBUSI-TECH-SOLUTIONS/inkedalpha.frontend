@@ -1,64 +1,67 @@
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { HeartPlus } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import type { Product } from "@/entities/product/types";
 import { formatCurrency } from "@/lib/utils";
 import { Link } from "react-router-dom";
+import type { ProductResponse } from "@/app/service/products/productType";
+import { useProduct } from "@/app/store/product/useProduct";
 
 interface ProductCartProps {
-  product: Product
+  product: ProductResponse
 }
 
 export const ProductCart = ({
   product,
 }: ProductCartProps) => {
+  const { selectProduct } = useProduct();
+
   return (
-    <Link to={`/product/${product.id}`}>
-      <Card
-        className="relative w-[420px] h-[620px] rounded shadow-lg overflow-hidden p-0 border border-transparent hover:border-ink-500 transition-all duration-300 hover:scale-105">
-        {/* Imagen de fondo */}
-        <img
-          src={product.image}
-          alt="Camisa estampada"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-
-        {/* Capa oscura para mejorar legibilidad */}
-        <div className="absolute inset-0 bg-ink-black/20" />
-
-        {/* Contenido encima de la imagen */}
-        <div className="relative z-10 flex flex-col justify-between h-full">
-          {/* Botón favorito */}
-          <div className="flex justify-end m-5">
-            <Button variant="ghost" size="icon">
-              <HeartPlus className="w-5 h-5 text-ink-500" />
-            </Button>
-          </div>
-
-          {/* Info principal */}
-          <CardContent
-            className="bg-neutral-900 h-[40%] py-2 flex flex-col justify-center gap-2 px-4">
-            <h2 className="text-xl font-family-heading text-ink-300 urban-text-shadow text-shadow">{product.name}</h2>
-            <div className="flex gap-2">
-              {product.tags.map((tag) => (
-                <Badge variant="outline" key={tag}>
-                  {tag}
-                </Badge>
+    <Link
+      to={`/product/${product.product_category_id}`}
+      onClick={() => selectProduct(product)}
+    >
+      <div className="group relative h-[500px] w-full overflow-hidden">
+        <div className="absolute inset-0 transition-all duration-300 group-hover:opacity-0 group-hover:blur-lg">
+          <img
+            src={product.items[0].images[0]}
+            alt={product.product_name}
+            className="object-cover"
+          />
+        </div>
+        <div className="absolute inset-0 opacity-0 transition-all duration-300 group-hover:opacity-100">
+          <img
+            src={product.items[0].images[1]}
+            alt={`${product.product_name} - hover`}
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        </div>
+        <div className="absolute inset-x-0 bottom-0 translate-y-full bg-black p-6 transition-transform duration-500 group-hover:translate-y-0">
+          <p className="mb-4 text leading-relaxed text-white/90 truncate">
+            {product.description}
+          </p>
+          <div className="flex items-center justify-between"> 
+            <div className="flex items-center mb-2">
+              {product.items[0].variations.map((variant) => (
+                <span
+                  key={variant.size_id}
+                  className="py-2 px-4 border border-ink-500"
+                >
+                  {variant.size_id}
+                </span>
               ))}
             </div>
-            <p className="text-sm">
-              {product.description}
-            </p>
-            <div className="flex items-center justify-between mt-4">
-              <span className="text-lg font-family-heading text-white">
-                {formatCurrency(product.price)}
-              </span>
-              <Button variant="outline">Añadir</Button>
-            </div>
-          </CardContent>
+            <Button variant="secondary" size="lg">
+              Añadir
+            </Button>
+          </div>
         </div>
-      </Card>
+      </div>
+      <div className="mb-4">
+        <h2 className="font-family-heading text-xl text-ink-300">
+          {product.product_name}
+        </h2>
+        <span className="font-mono text-ink-300">
+          {formatCurrency(product.items[0].sale_price)}
+        </span>
+      </div>
     </Link>
   );
 }

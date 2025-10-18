@@ -1,11 +1,18 @@
-import { Button } from "@/components/ui/button";
+import { useCategory } from "@/app/store/category/useCategory";
+import { useLanguageStore } from "@/app/store/lenguageStateStore";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { products } from "@/app/dataExample/products";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 export const CategoryShowcase = () => {
   const { t } = useTranslation();
+  const { fetchCategories, categories } = useCategory();
+  const { language } = useLanguageStore();
+
+
+  useEffect(() => {
+    fetchCategories(language);
+  }, [fetchCategories]);
 
   return (
     <section className="py-20 bg-black">
@@ -63,52 +70,16 @@ export const CategoryShowcase = () => {
           </div>
         </section>
 
-        {/* Categories */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {products
-            .filter((product) => product.isFeatured)
-            .slice(0, 4)
-            .map((product) => (
-              <Link
-                to={`/`}
-                key={product.id}
-                className="group relative block"
-              >
-                <AspectRatio
-                  ratio={3 / 4}
-                  className="rounded-lg overflow-hidden bg-ink-800 hover:bg-ink-700/">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink-500/30 to-transparent" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-
-                   {/* Content */}
-                  <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                    <div className="space-y-2">
-                      <h3 className="text-2xl font-family-heading brand-heading urban-text-shadow ">
-                        {product.category}
-                      </h3>
-                      <p className="font-body text-gray-500 italic">"{product.story.vibe}"</p>
-                    </div>
-                  </div>
-                </AspectRatio>
-              </Link>
-            ))}
-        </div>
-        {/* CTA  */}
-        <div className="text-center mt-12">
-          <Button
-            asChild
-            variant="outline"
-            className="border-ink-400 text-ink-400 hover:bg-ink-400 hover:text-white bg-transparent font-family-heading cta-text"
-            size="lg">
-            <Link to="/categories">{t("home.categoryShowcase.viewAll")}</Link>
-          </Button>
+        <div className="flex items-center justify-center gap-2">
+          {categories.map((category) => (
+            <Link
+              to={`/category/${category.product_category_id}`}
+              key={category.product_category_id}
+              className="border border-ink-500 text-ink-400 px-4 py-2 rounded-md hover:bg-ink-400 hover:text-black transition-colors text-2xl font-family-heading"
+            >
+              {category.category_name}
+            </Link>
+          ))}
         </div>
       </div>
     </section>

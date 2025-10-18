@@ -1,15 +1,18 @@
-import apiClient from "@/app/apiClient";
-import axios, { type AxiosResponse } from "axios";
+import type { AxiosResponse } from "axios";
+import type { CategoryType } from "./categoryType";
+import axios, { AxiosHeaders } from "axios";
 import { toast } from "sonner";
-import type { CategoryType } from "../types/productCategoryType";
+import apiClient from "@/app/apiClient";
 
-
-export const ProductCategoryService = {
-  getAllCategories: async ():
+export const CategoryService = {
+  getAllCategories: async (lang: string):
     Promise<AxiosResponse<CategoryType[]>> => {
     try {
-      const response: AxiosResponse<CategoryType[]>
-        = await apiClient.get<CategoryType[]>('v1/product-categories');
+      const response: AxiosResponse<CategoryType[]> 
+        = await apiClient.get('v1/product-categories', {
+          params: { lang },
+          headers: new AxiosHeaders()
+        });
       return response;
     } catch (error: unknown) {
       let errorMessage = "Error al obtener las categorias.";
@@ -21,5 +24,5 @@ export const ProductCategoryService = {
       toast.error(errorMessage);
       throw new Error(errorMessage);
     }
-  },
+  }
 }
