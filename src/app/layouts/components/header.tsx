@@ -1,7 +1,6 @@
 import { ChangeLanguage } from "@/app/components/changeLenguage";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { Search } from "@/app/layouts/components/search";
 import { ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -37,7 +36,6 @@ const Header = () => {
           </Link>
         </nav>
         <div className="flex justify-center items-center gap-x-2">
-          <Search />
           <ChangeLanguage />
           <Button variant="ghost" size="icon" className="hidden md:flex">
             <ShoppingBag className="text-ink-500" /> {/* Shopping cart icon, can be replaced with a link to the cart page */}

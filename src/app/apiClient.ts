@@ -1,9 +1,14 @@
-import axios, {AxiosError, AxiosHeaders} from "axios";
-import type { AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } from "axios";
+import axios, { AxiosHeaders } from "axios";
+import type {
+   AxiosInstance,
+   AxiosResponse,
+   AxiosError,
+   InternalAxiosRequestConfig
+} from "axios";
 
 export type HttpMethod = "get" | "post" | "put" | "delete" | "patch";
 
-export interface ApiRequestConfig extends InternalAxiosRequestConfig {
+export interface ApiRequestConfig extends InternalAxiosRequestConfig  {
    abortController?: AbortController;
    isPublic?: boolean;
    headers: AxiosHeaders;
@@ -57,33 +62,6 @@ class ApiClient {
    }
 
    private setupInterceptors(): void {
-      this.axiosInstance.interceptors.request.use(
-         (config) => {
-            const updatedConfig = config as ApiRequestConfig;
-
-            if (!updatedConfig.isPublic) {
-               const token = localStorage.getItem("authToken");
-               if (token) {
-                  updatedConfig.headers.set("Authorization", `Bearer ${token}`);
-               }
-            }
-
-            // Abortcontroller
-            const requestId = this.generateRequestId(updatedConfig);
-            if (this.pendingRequests.has(requestId)) {
-               this.cancelRequest(requestId);
-            }
-
-            const abortController = new AbortController();
-            updatedConfig.signal = abortController.signal;
-            updatedConfig.abortController = abortController;
-            this.pendingRequests.set(requestId, abortController);
-
-            return updatedConfig;
-         },
-         (error) => Promise.reject(this.normalizeError(error))
-      );
-
       this.axiosInstance.interceptors.response.use(
          (response) => {
             this.pendingRequests.delete(
@@ -105,40 +83,40 @@ class ApiClient {
    private generateRequestId(config: ApiRequestConfig): string {
       return `${config.method?.toUpperCase()}_${config.url}_${JSON.stringify(config.params || {})}_${JSON.stringify(config.data || {})}`;
    }
-
-   private normalizeResponse<T>(response: AxiosResponse<T>): ApiResponse<T> {
+  
+     private normalizeResponse<T>(response: AxiosResponse<T>): ApiResponse<T> {
       return {
-         data: response.data,
-         status: response.status,
-         statusText: response.statusText,
-         headers: response.headers as AxiosHeaders,
-         config: response.config as ApiRequestConfig
-      };
-   }
-
-   private normalizeError(error: any): ApiError {
-      if (axios.isCancel(error)) {
-         return {
+            data: response.data,
+            status: response.status,
+            statusText: response.statusText,
+            headers: response.headers as AxiosHeaders,
+            config: response.config as ApiRequestConfig
+        };
+     }
+  
+     private normalizeError(error: any): ApiError {
+      if(axios.isCancel(error)){
+        return {
             message: "Request cancelled",
             isCancelled: true,
             originalError: error as Error,
-         }
+        }
       }
-      if (axios.isAxiosError(error)) {
-         return {
+      if(axios.isAxiosError(error)){
+        return {
             message: error.message,
             status: error.response?.status,
             code: error.code,
             data: error.response?.data,
             originalError: error as AxiosError,
-         }
+        }
       }
-
+  
       return {
-         message: error.message || "An unknown error occurred",
-         originalError: error as Error,
-      };
-   }
+            message: error.message || "An unknown error occurred",
+            originalError: error as Error,
+        };
+     }
 
    //HTTP Methods
 
@@ -205,21 +183,21 @@ class ApiClient {
          controller.abort();
          this.pendingRequests.delete(requestId);
       }
-   }
+   }   
 
    //Config Methods
 
    protected setBaseURL(baseURL: string): void {
-      this.axiosInstance.defaults.baseURL = baseURL;
+    this.axiosInstance.defaults.baseURL = baseURL;
    }
 
    public setHeader(key: string, value: string): void {
       this.axiosInstance.defaults.headers.common[key] = value;
    }
 
-   public removeHeader(key: string): void {
-      delete this.axiosInstance.defaults.headers.common[key];
-   }
+    public removeHeader(key: string): void {
+        delete this.axiosInstance.defaults.headers.common[key];
+    }
 }
 
 export default ApiClient.getInstance(import.meta.env.VITE_API_URL_PROD);
