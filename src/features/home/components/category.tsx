@@ -73,8 +73,8 @@ export const CategoryShowcase = () => {
         <div className="flex items-center justify-center gap-2">
           {categories.map((category) => (
             <Link
-              to={`/category/${category.parent_category_id}`}
-              key={category.parent_category_id}
+              to={`/category/${category.product_category_id}`}
+              key={category.product_category_id}
               className="border border-ink-500 text-ink-400 px-4 py-2 rounded-md hover:bg-ink-400 hover:text-black transition-colors text-2xl font-family-heading"
             >
               {category.category_name}
