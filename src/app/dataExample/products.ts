@@ -19,8 +19,10 @@ export const productsData: ProductResponse[] = [
         original_price: 450000,
         sale_price: 399000,
         images: [
-          "./images/products/avaricia.jpg",
-          "./images/products/beisbolera-chica.jpg"
+          "https://jtlkbdepwztxqxwfsjag.supabase.co//storage/v1/object/public/products/9daccf59-5911-42b1-a13e-5c772aba6e42_20251018_002104.webp?",
+          "https://jtlkbdepwztxqxwfsjag.supabase.co//storage/v1/object/public/products/f72216b0-7569-4a66-b0a6-69ebf592fcc9_20251017_170153.jpg?",
+          "https://jtlkbdepwztxqxwfsjag.supabase.co//storage/v1/object/public/products/f72216b0-7569-4a66-b0a6-69ebf592fcc9_20251017_170153.jpg?",
+          "https://jtlkbdepwztxqxwfsjag.supabase.co//storage/v1/object/public/products/9daccf59-5911-42b1-a13e-5c772aba6e42_20251018_002104.webp?"
         ],
         variations: [
           { size_id: "S", qty_in_stock: 5 },

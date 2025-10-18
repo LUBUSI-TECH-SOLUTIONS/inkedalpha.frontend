@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { formatCurrency } from "@/lib/utils";
 import { Link } from "react-router-dom";
 import type { ProductResponse } from "@/app/service/products/productType";
+import { useProduct } from "@/app/store/product/useProduct";
 
 interface ProductCartProps {
   product: ProductResponse
@@ -10,8 +11,13 @@ interface ProductCartProps {
 export const ProductCart = ({
   product,
 }: ProductCartProps) => {
+  const { selectProduct } = useProduct();
+
   return (
-    <Link to={`/product/${product.product_id}`}>
+    <Link
+      to={`/product/${product.product_category_id}`}
+      onClick={() => selectProduct(product)}
+    >
       <div className="group relative h-[500px] w-full overflow-hidden">
         <div className="absolute inset-0 transition-all duration-300 group-hover:opacity-0 group-hover:blur-lg">
           <img
@@ -28,22 +34,24 @@ export const ProductCart = ({
           />
         </div>
         <div className="absolute inset-x-0 bottom-0 translate-y-full bg-black p-6 transition-transform duration-500 group-hover:translate-y-0">
-          <p className="mb-4 text leading-relaxed text-white/90">
+          <p className="mb-4 text leading-relaxed text-white/90 truncate">
             {product.description}
           </p>
-          <div className="flex items-center mb-2">
-            {product.items[0].variations.map((variant) => (
-              <span
-                key={variant.size_id}
-                className="py-2 px-4 border border-ink-500"
-              >
-                {variant.size_id}
-              </span>
-            ))}
+          <div className="flex items-center justify-between"> 
+            <div className="flex items-center mb-2">
+              {product.items[0].variations.map((variant) => (
+                <span
+                  key={variant.size_id}
+                  className="py-2 px-4 border border-ink-500"
+                >
+                  {variant.size_id}
+                </span>
+              ))}
+            </div>
+            <Button variant="secondary" size="lg">
+              Añadir
+            </Button>
           </div>
-          <Button variant="secondary" size="lg">
-            Añadir
-          </Button>
         </div>
       </div>
       <div className="mb-4">
