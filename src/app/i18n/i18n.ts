@@ -126,6 +126,9 @@ const resources = {
         details: "Detalles",
         care: "Cuidado",
         story: "Historia",
+        color: "Color",
+        size: "Talla",
+        size_guide: "Guía de Tallas"
       },
       footer: {
         description:
@@ -272,6 +275,9 @@ const resources = {
         details: "Details",
         care: "Care",
         story: "Story",
+        color: "Color",
+        size: "Size",
+        size_guide: "Size Guide"
       },
       footer: {
         description:

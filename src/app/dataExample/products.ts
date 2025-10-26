@@ -16,6 +16,7 @@ export const productsData: ProductResponse[] = [
     items: [
       {
         color_id: "black",
+        hexadecimal: "#000000",
         original_price: 450000,
         sale_price: 399000,
         images: [
@@ -27,7 +28,44 @@ export const productsData: ProductResponse[] = [
         variations: [
           { size_id: "S", qty_in_stock: 5 },
           { size_id: "M", qty_in_stock: 8 },
-          { size_id: "L", qty_in_stock: 3 }
+          { size_id: "L", qty_in_stock: 3 },
+          { size_id: "XL", qty_in_stock: 0 }
+        ]
+      },
+      {
+        color_id: "brown",
+        hexadecimal: "#8B4513",
+        original_price: 450000,
+        sale_price: 450000,
+        images: [
+          "https://i.pinimg.com/736x/f1/0b/ef/f10bef6947c528f487076933f3af8d3d.jpg",
+          "https://i.pinimg.com/736x/f1/0b/ef/f10bef6947c528f487076933f3af8d3d.jpg",
+          "https://i.pinimg.com/736x/f1/0b/ef/f10bef6947c528f487076933f3af8d3d.jpg",
+          "https://i.pinimg.com/736x/f1/0b/ef/f10bef6947c528f487076933f3af8d3d.jpg"
+        ],
+        variations: [
+          { size_id: "S", qty_in_stock: 2 },
+          { size_id: "M", qty_in_stock: 0 },
+          { size_id: "L", qty_in_stock: 6 },
+          { size_id: "XL", qty_in_stock: 4 }
+        ]
+      },
+      {
+        color_id: "#1E3A8A",
+        hexadecimal: "#000080",
+        original_price: 480000,
+        sale_price: 420000,
+        images: [
+          "https://i.pinimg.com/736x/f4/6e/86/f46e863ee826ed80d667bbeb2b0c718b.jpg",
+          "https://jtlkbdepwztxqxwfsjag.supabase.co//storage/v1/object/public/products/f72216b0-7569-4a66-b0a6-69ebf592fcc9_20251017_170153.jpg?",
+          "https://i.pinimg.com/736x/f4/6e/86/f46e863ee826ed80d667bbeb2b0c718b.jpg",
+          "https://jtlkbdepwztxqxwfsjag.supabase.co//storage/v1/object/public/products/f72216b0-7569-4a66-b0a6-69ebf592fcc9_20251017_170153.jpg?"
+        ],
+        variations: [
+          { size_id: "S", qty_in_stock: 3 },
+          { size_id: "M", qty_in_stock: 7 },
+          { size_id: "L", qty_in_stock: 1 },
+          { size_id: "XL", qty_in_stock: 5 }
         ]
       }
     ],
@@ -48,11 +86,14 @@ export const productsData: ProductResponse[] = [
     items: [
       {
         color_id: "white",
+        hexadecimal: "#FFFFFF",
         original_price: 59000,
         sale_price: 49000,
         images: [
-          "./images/products/chaqueta-oriental.jpg",
-          "./images/products/flor-azul-amarilla.jpg"
+          "https://i.pinimg.com/736x/f1/0b/ef/f10bef6947c528f487076933f3af8d3d.jpg",
+          "https://i.pinimg.com/736x/f1/0b/ef/f10bef6947c528f487076933f3af8d3d.jpg",
+          "https://i.pinimg.com/736x/f1/0b/ef/f10bef6947c528f487076933f3af8d3d.jpg",
+          "https://i.pinimg.com/736x/f1/0b/ef/f10bef6947c528f487076933f3af8d3d.jpg"
         ],
         variations: [
           { size_id: "S", qty_in_stock: 10 },
@@ -81,8 +122,10 @@ export const productsData: ProductResponse[] = [
         original_price: 189000,
         sale_price: 159000,
         images: [
-          "./images/products/flor-roja-negra.jpg",
-          "./images/products/flor-rosa-blanca-pareja.jpg"
+          "https://i.pinimg.com/736x/f1/0b/ef/f10bef6947c528f487076933f3af8d3d.jpg",
+          "https://i.pinimg.com/736x/54/28/51/54285181274f3913a04ab4f545a179e6.jpg",
+          "https://i.pinimg.com/736x/f1/0b/ef/f10bef6947c528f487076933f3af8d3d.jpg",
+          "https://i.pinimg.com/736x/f1/0b/ef/f10bef6947c528f487076933f3af8d3d.jpg"
         ],
         variations: [
           { size_id: "S", qty_in_stock: 12 },
@@ -111,8 +154,10 @@ export const productsData: ProductResponse[] = [
         original_price: 320000,
         sale_price: 289000,
         images: [
-          "./images/products/flor-azul-amarilla.jpg",
-          "./images/products/chaqueta-oriental.jpg"
+          "https://i.pinimg.com/736x/f1/0b/ef/f10bef6947c528f487076933f3af8d3d.jpg",
+          "https://i.pinimg.com/736x/54/28/51/54285181274f3913a04ab4f545a179e6.jpg",
+          "https://i.pinimg.com/736x/f1/0b/ef/f10bef6947c528f487076933f3af8d3d.jpg",
+          "https://i.pinimg.com/736x/f1/0b/ef/f10bef6947c528f487076933f3af8d3d.jpg"
         ],
         variations: [
           { size_id: "L", qty_in_stock: 6 },
@@ -140,8 +185,10 @@ export const productsData: ProductResponse[] = [
         original_price: 129000,
         sale_price: 99000,
         images: [
-          "./images/products/beisbolera-chica.jpg",
-          "./images/products/flor-azul-amarilla.jpg"
+          "https://i.pinimg.com/736x/f1/0b/ef/f10bef6947c528f487076933f3af8d3d.jpg",
+          "https://i.pinimg.com/736x/54/28/51/54285181274f3913a04ab4f545a179e6.jpg",
+          "https://i.pinimg.com/736x/f1/0b/ef/f10bef6947c528f487076933f3af8d3d.jpg",
+          "https://i.pinimg.com/736x/f1/0b/ef/f10bef6947c528f487076933f3af8d3d.jpg"
         ],
         variations: [
           { size_id: "L", qty_in_stock: 20 }
@@ -168,8 +215,10 @@ export const productsData: ProductResponse[] = [
         original_price: 69000,
         sale_price: 59000,
         images: [
-          "./images/products/chaqueta-oriental.jpg",
-          "./images/products/flor-azul-amarilla.jpg"
+          "https://i.pinimg.com/736x/f1/0b/ef/f10bef6947c528f487076933f3af8d3d.jpg",
+          "https://i.pinimg.com/736x/54/28/51/54285181274f3913a04ab4f545a179e6.jpg",
+          "https://i.pinimg.com/736x/f1/0b/ef/f10bef6947c528f487076933f3af8d3d.jpg",
+          "https://i.pinimg.com/736x/f1/0b/ef/f10bef6947c528f487076933f3af8d3d.jpg"
         ],
         variations: [
           { size_id: "L", qty_in_stock: 25 }
