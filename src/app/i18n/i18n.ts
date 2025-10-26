@@ -118,6 +118,15 @@ const resources = {
           { key: "countries_shipping", label: "Países de Envío", value: "20+" },
         ],
       },
+      product: {
+        model_height: "Modelo mide",
+        model_wearing: "Usa talla",
+        add_to_cart: "Agregar al Carrito",
+        shop_now: "Comprar Ahora",
+        details: "Detalles",
+        care: "Cuidado",
+        story: "Historia",
+      },
       footer: {
         description:
           "Ropa y tatuajes urbanos que expresan tu identidad, creativo y único.",
@@ -254,6 +263,15 @@ const resources = {
             value: "20+",
           },
         ],
+      },
+      product: {
+        model_height: "Model height",
+        model_wearing: "Wearing size",  
+        add_to_cart: "Add to Cart",
+        shop_now: "Shop Now",
+        details: "Details",
+        care: "Care",
+        story: "Story",
       },
       footer: {
         description:
