@@ -3,9 +3,13 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useCart } from "@/app/store/cart/useCart";
 
 const Header = () => {
   const { t } = useTranslation();
+  const { toggleCart, getTotalItems } = useCart();
+  const totalItems = getTotalItems();
+
   return (
     <header className="sticky top-0 z-50 border-b border-ink-dark bg-black/95 backdrop-blur supports-[backdrop-filter]:bg-black/60">
       <div className="flex h-16 items-center justify-evenly w-full">
@@ -37,8 +41,18 @@ const Header = () => {
         </nav>
         <div className="flex justify-center items-center gap-x-2">
           <ChangeLanguage />
-          <Button variant="ghost" size="icon" className="hidden md:flex">
-            <ShoppingBag className="text-ink-500" /> {/* Shopping cart icon, can be replaced with a link to the cart page */}
+          <Button
+            onClick={toggleCart}
+            variant="ghost"
+            size="icon"
+            className="relative"
+          >
+            <ShoppingBag className="text-ink-500" />
+            {totalItems > 0 && (
+              <span className="absolute -top-2 -right-2 bg-ink-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                {totalItems}
+              </span>
+            )}
           </Button>
         </div>
       </div>

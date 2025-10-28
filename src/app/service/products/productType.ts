@@ -35,3 +35,18 @@ export interface ProductVariation {
   size_name?: string;
   qty_in_stock: number;
 }
+
+export interface ProductSelectedItem {
+  product_id: string;
+  product_name: string;
+  description: string;
+  color_id: string;
+  hexadecimal?: string;
+  size_id: string;
+  quantity: number;
+  original_price: number;
+  sale_price: number;
+  images: string;
+  product_category_id: string;
+  collection_id: string;
+}
