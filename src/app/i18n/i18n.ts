@@ -128,7 +128,10 @@ const resources = {
         story: "Historia",
         color: "Color",
         size: "Talla",
-        size_guide: "Guía de Tallas"
+        size_guide: "Guía de Tallas",
+        shopping_cart: {
+          title: "Carrito de Compras"
+        }
       },
       footer: {
         description:
@@ -277,7 +280,10 @@ const resources = {
         story: "Story",
         color: "Color",
         size: "Size",
-        size_guide: "Size Guide"
+        size_guide: "Size Guide",
+        shopping_cart: {
+          title: "Shopping Cart"
+        }
       },
       footer: {
         description:

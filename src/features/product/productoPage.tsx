@@ -8,9 +8,12 @@ import { Badge } from "@/components/ui/badge";
 import { useTranslation } from "react-i18next";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TabsContent } from "@radix-ui/react-tabs";
+import { toast } from "sonner";
+import { useCart } from "@/app/store/cart/useCart";
 
 const ProductPage = () => {
   const { t } = useTranslation();
+  const { addToCart } = useCart();
 
   const { selectedProduct } = useProduct();
   const [selectedImage, setSelectedImage] = useState(0);
@@ -31,6 +34,22 @@ const ProductPage = () => {
     setSelectedImage(0);
     setSelectedSize(null);
   }
+
+  const handleAddToCart = () => {
+    if (!currentItem) {
+      toast.error('Por favor selecciona un color');
+      return;
+    }
+    if (!selectedSize) {
+      toast.error('Por favor selecciona una talla');
+      return;
+    }
+
+    addToCart(selectedProduct, currentItem, selectedSize);
+    toast.success(`${selectedProduct.product_name} añadido al carrito`);
+    // setCartOpen(true);
+    setSelectedSize('');
+  };
 
   const getStockStatus = (qty: number) => {
     if (qty === 0) return { text: "Agotado", color: "bg-red-100 text-red-800" };
@@ -219,6 +238,7 @@ const ProductPage = () => {
             {/* Buttons actions  */}
             <div className="space-y-3 sm:space-y-4">
               <Button
+                onClick={handleAddToCart}
                 size="lg"
                 className="w-full"
               >
