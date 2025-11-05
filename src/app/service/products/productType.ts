@@ -24,10 +24,14 @@ export interface ProductItem {
   hexadecimal?: string;
   original_price: number;
   sale_price: number;
-  images: string[];
+  images: ProductImage[];
   variations: ProductVariation[];
 }
 
+export interface ProductImage {
+  product_image_id?: string;
+  image_filename?: string;
+}
 
 export interface ProductVariation {
   variation_id?: string;
