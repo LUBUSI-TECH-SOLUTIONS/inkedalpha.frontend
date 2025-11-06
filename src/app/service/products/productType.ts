@@ -41,6 +41,7 @@ export interface ProductVariation {
 }
 
 export interface ProductSelectedItem {
+  product_item_id?: string;
   product_id: string;
   product_name: string;
   description: string;
@@ -50,7 +51,7 @@ export interface ProductSelectedItem {
   quantity: number;
   original_price: number;
   sale_price: number;
-  images: string;
+  images: ProductImage[];
   product_category_id: string;
   collection_id: string;
 }

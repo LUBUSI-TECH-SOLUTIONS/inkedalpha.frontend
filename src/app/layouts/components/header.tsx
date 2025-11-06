@@ -29,12 +29,12 @@ const Header = () => {
         </Link>
 
         <nav className="hidden md:flex items-center space-x-8">
-          <Link to="/shop" className="text-lg font-family-heading cta-text hover:text-primary-foreground transition-colors">
+          <Link to="/" className="text-lg font-family-heading cta-text hover:text-primary-foreground transition-colors">
             {t('header.shop')}
           </Link>
-          <Link to="/category" className="text-lg font-family-heading cta-text hover:text-primary-foreground transition-colors">
+          {/* <Link to="/category" className="text-lg font-family-heading cta-text hover:text-primary-foreground transition-colors">
             {t('header.categories')}
-          </Link>
+          </Link> */}
           <Link to="/about" className="text-lg font-family-heading cta-text hover:text-primary-foreground transition-colors">
             {t('header.about')}
           </Link>

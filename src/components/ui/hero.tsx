@@ -9,10 +9,12 @@ interface HeroSectionProps {
 export const HeroSection = ({
   bannerImage = "/background/bg_one.webp",
   typewriterWords = [
-    "accessories",
-    "gadgets",
-    "electronics",
-    "smart devices",
+    "tattoos",
+    "apparel",
+    "designs",
+    "streetwear",
+    "art",
+    "style",
   ],
 }: HeroSectionProps) => {
 

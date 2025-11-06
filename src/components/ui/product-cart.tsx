@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import type { ProductResponse } from "@/app/service/products/productType";
 import { useProduct } from "@/app/store/product/useProduct";
 import { cn } from "@/lib/utils";
+import { useLanguageStore } from "@/app/store/lenguageStateStore";
 
 interface ProductCartProps {
   product: ProductResponse
@@ -12,7 +13,8 @@ interface ProductCartProps {
 export const ProductCart = ({
   product,
 }: ProductCartProps) => {
-  const { selectProduct } = useProduct();
+  const { fetchSingleProduct } = useProduct();
+  const {language} = useLanguageStore() 
 
   // Validar que el producto tenga items y al menos una imagen
   if (!product.items || product.items.length === 0) {
@@ -36,7 +38,7 @@ export const ProductCart = ({
   return (
     <Link
       to={`/product/${product.product_category_id}`}
-      onClick={() => selectProduct(product)}
+      onClick={() => fetchSingleProduct(product, language)}
     >
       <div className="group relative h-[500px] w-full overflow-hidden">
         <div className="absolute inset-0 transition-all duration-300 group-hover:opacity-0 group-hover:blur-lg">
