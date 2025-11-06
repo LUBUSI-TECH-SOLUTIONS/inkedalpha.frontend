@@ -1,4 +1,3 @@
-import { productsData } from "@/app/dataExample/products";
 import { ProductService } from "@/app/service/products/productService";
 import type { ProductResponse } from "@/app/service/products/productType";
 import { create } from "zustand";
@@ -26,7 +25,7 @@ const CACHE_EXPIRATION = 1000 * 60 * 10; // 10 minutos
 export const useProduct = create<ProductStore>()(
   persist(
     (set, get) => ({
-      products: productsData,
+      products: [],
       isLoading: false,
       selectedProduct: undefined,
 
@@ -93,7 +92,7 @@ export const useProduct = create<ProductStore>()(
       selectProduct: (product) => set({ selectedProduct: { ...product, cachedAt: Date.now() } }),
 
       // 🔹 Restaura la lista base
-      resetProducts: () => set({ products: productsData }),
+      resetProducts: () => set({ products: []}),
     }),
     {
       name: "product-storage", // 🔸 clave del localStorage
