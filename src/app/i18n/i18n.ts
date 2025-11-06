@@ -99,7 +99,8 @@ const resources = {
           },
           {
             title: "Proceso creativo",
-            description: "Cada colección es un proceso minucioso: desde la idea inicial, pasando por los bocetos inspirados en tatuajes, hasta la selección de paletas de colores. Todo está pensado para crear prendas únicas y cargadas de personalidad."
+            description: "Cada colección es un proceso minucioso: desde la idea inicial, pasando por los bocetos inspirados en tatuajes, hasta la selección de paletas de colores. Todo está pensado para crear prendas únicas y cargadas de personalidad.",
+            img: "/images/about/about-four.webp"
           },
           {
             title: "Exclusividad",
@@ -248,11 +249,13 @@ const resources = {
           },
           {
             title: "Creative Process",
-            description: "Each collection is a meticulous process: from the initial idea, through sketches inspired by tattoos, to the selection of color palettes. Everything is crafted to create unique garments full of personality."
+            description: "Each collection is a meticulous process: from the initial idea, through sketches inspired by tattoos, to the selection of color palettes. Everything is crafted to create unique garments full of personality.",
+            img: "/images/about/about-four.webp"
           },
           {
             title: "Exclusivity",
-            description: "We believe exclusivity has greater value. That’s why most of our pieces are produced in limited editions, and many are made only once. Wearing InkedAlpha means wearing something truly yours."
+            description: "We believe exclusivity has greater value. That’s why most of our pieces are produced in limited editions, and many are made only once. Wearing InkedAlpha means wearing something truly yours.",
+            img: "/images/about/about-four.webp"
           }
         ],
         metrics: [

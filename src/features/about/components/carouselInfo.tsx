@@ -36,7 +36,7 @@ export const CarouselInfo = () => {
                     alt="InkedAlpha"
                     className="w-74 h-74 object-contain filter brightness-0 invert"
                   />
-                  <h2 className="text-5xl font-family-heading text-white drop-shadow-md pb-5">
+                  <h2 className="text-5xl font-family-heading text-white drop-shadow-md pb-5z">
                     {item.title}
                   </h2>
                   <p className="w-90 text-gray-100 pl-5">{item.description}</p>

@@ -3,6 +3,8 @@ import { formatCurrency } from "@/lib/utils";
 import { Link } from "react-router-dom";
 import type { ProductResponse } from "@/app/service/products/productType";
 import { useProduct } from "@/app/store/product/useProduct";
+import { cn } from "@/lib/utils";
+import { useLanguageStore } from "@/app/store/lenguageStateStore";
 
 interface ProductCartProps {
   product: ProductResponse
@@ -11,27 +13,48 @@ interface ProductCartProps {
 export const ProductCart = ({
   product,
 }: ProductCartProps) => {
-  const { selectProduct } = useProduct();
+  const { fetchSingleProduct } = useProduct();
+  const {language} = useLanguageStore() 
+
+  // Validar que el producto tenga items y al menos una imagen
+  if (!product.items || product.items.length === 0) {
+    return null; // No renderizar si no hay items
+  }
+
+  const firstItem = product.items[0];
+  
+  if (!firstItem.images || firstItem.images.length === 0) {
+    return null; // No renderizar si no hay imágenes
+  }
+
+  const image = firstItem.images[0]?.image_filename;
+  const imageHover = firstItem.images[1]?.image_filename;
+
+  // Si no hay imagen principal, no renderizar
+  if (!image) {
+    return null;
+  }
 
   return (
     <Link
       to={`/product/${product.product_category_id}`}
-      onClick={() => selectProduct(product)}
+      onClick={() => fetchSingleProduct(product, language)}
     >
       <div className="group relative h-[500px] w-full overflow-hidden">
         <div className="absolute inset-0 transition-all duration-300 group-hover:opacity-0 group-hover:blur-lg">
           <img
-            src={product.items[0].images[0]}
+            src={image}
             alt={product.product_name}
-            className="object-cover"
+            className="object-cover w-full h-full"
+            loading="lazy"
           />
         </div>
         <div className="absolute inset-0 opacity-0 transition-all duration-300 group-hover:opacity-100">
-          <img
-            src={product.items[0].images[1]}
+          {imageHover && <img
+            src={imageHover}
             alt={`${product.product_name} - hover`}
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
-          />
+            className={cn("object-cover transition-transform duration-500 group-hover:scale-105", !imageHover && "hidden")}
+          />}
         </div>
         <div className="absolute inset-x-0 bottom-0 translate-y-full bg-black p-6 transition-transform duration-500 group-hover:translate-y-0">
           <p className="mb-4 text leading-relaxed text-white/90 truncate">
@@ -39,12 +62,12 @@ export const ProductCart = ({
           </p>
           <div className="flex items-center justify-between"> 
             <div className="flex items-center mb-2">
-              {product.items[0].variations.map((variant) => (
+              {firstItem.variations && firstItem.variations.length > 0 && firstItem.variations.map((variant) => (
                 <span
                   key={variant.size_id}
                   className="py-2 px-4 border border-ink-500"
                 >
-                  {variant.size_id}
+                  {variant.size_name}
                 </span>
               ))}
             </div>
@@ -59,7 +82,7 @@ export const ProductCart = ({
           {product.product_name}
         </h2>
         <span className="font-mono text-ink-300">
-          {formatCurrency(product.items[0].sale_price)}
+          {formatCurrency(firstItem.sale_price)}
         </span>
       </div>
     </Link>

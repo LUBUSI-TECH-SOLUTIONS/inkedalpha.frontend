@@ -1,19 +1,7 @@
-import { useCategory } from "@/app/store/category/useCategory";
-import { useLanguageStore } from "@/app/store/lenguageStateStore";
-import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
 
 export const CategoryShowcase = () => {
   const { t } = useTranslation();
-  const { fetchCategories, categories } = useCategory();
-  const { language } = useLanguageStore();
-
-
-  useEffect(() => {
-    fetchCategories(language);
-  }, [fetchCategories]);
-
   return (
     <section className="py-20 bg-black">
       <div className="mx-10">
@@ -69,18 +57,6 @@ export const CategoryShowcase = () => {
             </div>
           </div>
         </section>
-
-        <div className="flex items-center justify-center gap-2">
-          {categories.map((category) => (
-            <Link
-              to={`/category/${category.product_category_id}`}
-              key={category.product_category_id}
-              className="border border-ink-500 text-ink-400 px-4 py-2 rounded-md hover:bg-ink-400 hover:text-black transition-colors text-2xl font-family-heading"
-            >
-              {category.category_name}
-            </Link>
-          ))}
-        </div>
       </div>
     </section>
   );

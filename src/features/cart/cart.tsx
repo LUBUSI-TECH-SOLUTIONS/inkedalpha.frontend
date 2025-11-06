@@ -44,7 +44,7 @@ export const ShoppingCart = () => {
                     >
                       <div className="flex gap-4">
                         <img
-                          src={item.images}
+                          src={item.images[0].image_filename}
                           alt={item.product_name}
                           className="w-24 h-28 object-cover rounded-lg border"
                         />

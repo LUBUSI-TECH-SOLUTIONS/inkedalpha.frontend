@@ -3,7 +3,7 @@ import { formatCurrency } from "@/lib/utils";
 import { useState } from "react";
 import { ImageWithFallback } from "./components/imageWithFallback";
 import { Button } from "@/components/ui/button";
-import { Check, Heart, ShoppingCart } from "lucide-react";
+import { Check, ShoppingCart } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { useTranslation } from "react-i18next";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -15,7 +15,7 @@ const ProductPage = () => {
   const { t } = useTranslation();
   const { addToCart } = useCart();
 
-  const { selectedProduct } = useProduct();
+  const { selectedProduct, isLoading } = useProduct();
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [selectedItemIndex, setSelectedItemIndex] = useState(0)
@@ -59,6 +59,12 @@ const ProductPage = () => {
 
   const selectedVariation = currentItem?.variations.find(variation => variation.size_id === selectedSize);
 
+  if (isLoading) {
+    return (
+      <div>Cargando</div>
+    )
+  }
+
   return (
     <section className="min-h-screen bg-gradient-to-b from-black to-ink-700/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:py-8 lg:py-12">
@@ -67,7 +73,7 @@ const ProductPage = () => {
           <div className="space-y-3 lg:sticky lg:top-6 lg:self-start">
             <div className="aspect-[3/4] sm:aspect-square overflow-hidden border border-neutral-900">
               <ImageWithFallback
-                src={currentItem?.images[selectedImage] || ""}
+                src={currentItem?.images[selectedImage].image_filename}
                 alt={selectedProduct?.product_name || "Product Image"}
                 className="object-cover w-full h-full"
               />
@@ -82,7 +88,7 @@ const ProductPage = () => {
                     }`}
                 >
                   <ImageWithFallback
-                    src={imgSrc}
+                    src={imgSrc.image_filename}
                     alt={`${selectedProduct?.product_name || "Product"} Thumbnail ${index + 1}`}
                     className="object-cover w-full h-full"
                   />
@@ -97,26 +103,18 @@ const ProductPage = () => {
             <div>
               <div className="flex items-start justify-between gap-4 mb-4">
                 <div className="flex-1">
-                  <p className="text-xs uppercase tracking-widest text-ink-600 mb-2">
-                    {selectedProduct?.collection_id}
-                  </p>
                   <h2 className="text-2xl sm:text-3xl lg:text-4xl uppercase tracking-tight font-family-heading">
                     {selectedProduct?.product_name}
                   </h2>
-                </div>
-                <div>
-                  <Button variant="outline" size="icon">
-                    <Heart className="h-4 w-4 sm:h-5 sm:w-5" />
-                  </Button>
                 </div>
               </div>
 
               {/* Price */}
               <div className="flex flex-wrap items-baseline gap-3 mb-4 sm:mb-6 pb-4 sm:pb-6 border-b border-ink-500">
-                <span className="text-2xl sm:text-3xl tracking-tight">{formatCurrency(currentItem?.sale_price || 0)}</span>
+                <span className="text-2xl sm:text-3xl tracking-tight font-family-heading text-ink-300">{formatCurrency(currentItem?.sale_price || 0)}</span>
                 {hasDiscount && (
                   <>
-                    <span className="text-lg ms:text-xl text-ink-600 line-through">
+                    <span className="text-lg ms:text-xl text-ink-600 line-through font-family-heading">
                       {formatCurrency(currentItem?.original_price || 0)}
                     </span>
                     <Badge variant="destructive" className="rounded-none uppercase text-shadow-xs">
@@ -126,12 +124,12 @@ const ProductPage = () => {
                 )}
               </div>
 
-              <p className="text-neutral-700 leading-relaxed">{selectedProduct?.description}</p>
+              <p className="text-neutral-200 leading-relaxed text-lg">{selectedProduct?.description}</p>
             </div>
 
             {/* Selector color  */}
             {(selectedProduct?.items?.length ?? 0) > 1 && (
-              <div className="border-t border-neutral-300 pt-6">
+              <div className="border-t border-ink-500 pt-6">
                 <label className="block uppercase text-sm tracking-wide mb-4">
                   {t("product.color")}: <span className="text-ink-500">{currentItem?.color_name}</span>
                 </label>
@@ -190,7 +188,7 @@ const ProductPage = () => {
                         ${!isAvailable ? 'opacity-30 cursor-not-allowed' : 'cursor-pointer'}
                       `}
                     >
-                      <span>{variation.size_id}</span>
+                      <span>{variation.size_name}</span>
                       {isSelected && (
                         <Check className="h-3 w-3 sm:h-4 sm:w-4 absolute top-1 right-1" />
                       )}
