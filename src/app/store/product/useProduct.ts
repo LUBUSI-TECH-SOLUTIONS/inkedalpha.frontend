@@ -101,5 +101,5 @@ export const useProduct = create<ProductStore>()(
         selectedProduct: state.selectedProduct,
       }),
     }
-  )
+  ) 
 );
