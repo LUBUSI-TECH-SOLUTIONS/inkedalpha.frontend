@@ -4,11 +4,19 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet"
 import { formatCurrency } from "@/lib/utils";
 import { Minus, Plus, ShoppingBag, Trash2 } from "lucide-react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 export const ShoppingCart = () => {
   const { t } = useTranslation();
-  const { isCartOpen, setCartOpen, productItems, updateItemQuantity, removeFromCart, getTotalPrice } = useCart();
+  const {
+    isCartOpen,
+    setCartOpen,
+    productItems,
+    updateItemQuantity,
+    removeFromCart,
+    getTotalPrice
+  } = useCart();
   const hasDiscount = productItems.some(item => item.sale_price < item.original_price);
 
   const totalSavings = productItems.reduce(
@@ -16,6 +24,59 @@ export const ShoppingCart = () => {
       total + (item.original_price - item.sale_price) * item.quantity,
     0
   );
+
+  // ---- Estado principal ----
+  const [products, setProducts] = useState<typeof productItems>([]);
+
+  // ---- Cargar productos desde productItems ----
+  const handleAddProduct = () => {
+    if (!Array.isArray(productItems)) {
+      console.error("productItems no es un arreglo válido");
+      return;
+    }
+
+    if (productItems.length === 0) {
+      console.warn("productItems está vacío");
+      return;
+    }
+
+    setProducts([...productItems]); // Reemplaza el estado con la lista actual
+  };
+
+  // ---- Generar mensaje dinámico para WhatsApp ----
+  const generarMensaje = () => {
+    if (!products || products.length === 0) {
+      return "No hay productos seleccionados";
+    }
+
+    const lista = products
+      .map(
+        (p, i) =>
+          `${i + 1}. ${p.product_name} - Talla ${p.size_name} - Cantidad: ${p.quantity
+          } - Precio: $${p.sale_price}`
+      )
+      .join("%0A");
+
+    const detalle = products
+      .map(
+        (p) =>
+          `------------------------------------%0A` +
+          `Producto: ${p.product_name}%0A` +
+          `Talla: ${p.size_name}%0A` +
+          `Color: ${p.color_name}%0A` +
+          `Cantidad: ${p.quantity}%0A` 
+          
+      )
+      .join("");
+
+    const texto = `Hola! Me interesa comprar los siguientes productos:%0A%0A${lista}%0A%0ADetalles:%0A%0A${detalle}`;
+
+    return `https://wa.me/+573106189254?text=${texto}`;
+  };
+
+  // ---- URL final del mensaje ----
+  const message = generarMensaje();
+
 
   return (
     <Sheet open={isCartOpen} onOpenChange={setCartOpen}>
@@ -54,16 +115,16 @@ export const ShoppingCart = () => {
                           </h4>
                           <div className="flex items-center gap-2">
                             <div
-                              className="w-5 h-5 rounded-full border border-ink-500"
+                              className="w-5 h-5 rounded-full"
                               style={{ backgroundColor: item.hexadecimal || '#666' }}
                               title={item.color_id}
                             />
                             <span className="text-zinc-300 text-lg uppercase">
-                              {item.color_id}
+                              {item.hexadecimal}
                             </span>
                           </div>
                           <p className="text-zinc-300 text-sm">
-                            {t('product.size')}: {item.size_id}
+                            {t('product.size')}: {item.size_name}
                           </p>
                           <div className="flex items-center gap-2 pt-1">
                             {hasDiscount && (
@@ -127,12 +188,15 @@ export const ShoppingCart = () => {
                   <span className="text-xltext-ink-300 neon-text">{formatCurrency(getTotalPrice())}</span>
                 </div>
 
-                <Button
-                  variant="secondary"
-                  className="w-full"
+                <a
+                  className="w-full py-2 px-3 bg-ink-700 text-white rounded-md text-center flex items-center justify-center"
+                  onClick={handleAddProduct}
+                  href={message}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Finalizar Compra
-                </Button>
+                </a>
               </div>
             </>
           )}

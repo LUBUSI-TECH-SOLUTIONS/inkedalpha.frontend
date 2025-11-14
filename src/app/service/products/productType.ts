@@ -46,8 +46,10 @@ export interface ProductSelectedItem {
   product_name: string;
   description: string;
   color_id: string;
+  color_name?: string;
   hexadecimal?: string;
   size_id: string;
+  size_name?: string;
   quantity: number;
   original_price: number;
   sale_price: number;

@@ -17,7 +17,6 @@ export const ProductCart = ({
   const { fetchSingleProduct, isLoading } = useProduct();
   const { language } = useLanguageStore()
 
-  // Validar que el producto tenga items y al menos una imagen
   if (!product.items || product.items.length === 0) {
     return null; // No renderizar si no hay items
   }

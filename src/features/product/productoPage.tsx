@@ -45,10 +45,10 @@ const ProductPage = () => {
       toast.error('Por favor selecciona una talla');
       return;
     }
+    const sizeName = currentItem?.variations.find(variation => variation.size_id === selectedSize)?.size_name;
 
-    addToCart(selectedProduct, currentItem, selectedSize);
+    addToCart(selectedProduct, currentItem, selectedSize, sizeName || '');
     toast.success(`${selectedProduct.product_name} añadido al carrito`);
-    // setCartOpen(true);
     setSelectedSize('');
   };
 

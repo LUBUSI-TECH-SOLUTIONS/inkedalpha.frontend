@@ -15,7 +15,8 @@ type ProductServiceParams = {
 }
 
 export const ProductService = {
-  getAllProducts: async (params: ProductServiceParams): Promise<AxiosResponse<ProductResponse | ProductResponse[]>> => {
+  getAllProducts: async (params: ProductServiceParams):
+    Promise<AxiosResponse<ProductResponse | ProductResponse[]>> => {
     try {
       const response: AxiosResponse<ProductResponse | ProductResponse[]>
         = await apiClient.get('v1/product', {
@@ -28,34 +29,34 @@ export const ProductService = {
           },
           headers: new AxiosHeaders()
         })
-        
-        // Si se solicita un solo producto y la respuesta es un array, retornar el primer elemento
-        if (params.single === true && Array.isArray(response.data)) {
-          const singleResponse: AxiosResponse<ProductResponse> = {
-            ...response,
-            data: response.data[0]
-          }
-          return singleResponse
+
+      // Si se solicita un solo producto y la respuesta es un array, retornar el primer elemento
+      if (params.single === true && Array.isArray(response.data)) {
+        const singleResponse: AxiosResponse<ProductResponse> = {
+          ...response,
+          data: response.data[0]
         }
-        
-        // Si se solicita un solo producto y la respuesta ya es un objeto, retornarlo
-        if (params.single === true && !Array.isArray(response.data)) {
-          return response as AxiosResponse<ProductResponse>
+        return singleResponse
+      }
+
+      // Si se solicita un solo producto y la respuesta ya es un objeto, retornarlo
+      if (params.single === true && !Array.isArray(response.data)) {
+        return response as AxiosResponse<ProductResponse>
+      }
+
+      // Si no se solicita un solo producto, asegurar que sea un array
+      if (params.single !== true) {
+        const arrayResponse: AxiosResponse<ProductResponse[]> = {
+          ...response,
+          data: Array.isArray(response.data) ? response.data : [response.data]
         }
-        
-        // Si no se solicita un solo producto, asegurar que sea un array
-        if (params.single !== true) {
-          const arrayResponse: AxiosResponse<ProductResponse[]> = {
-            ...response,
-            data: Array.isArray(response.data) ? response.data : [response.data]
-          }
-          return arrayResponse
-        }
-        
-        return response
-    } catch (error: unknown) { 
+        return arrayResponse
+      }
+
+      return response
+    } catch (error: unknown) {
       let errorMessage = "Error al obtener los productos"
-      if(axios.isAxiosError(error)){
+      if (axios.isAxiosError(error)) {
         errorMessage = error.response?.data?.message || errorMessage
       } else if (error instanceof Error) {
         errorMessage = error.message
