@@ -46,8 +46,14 @@ const ProductPage = () => {
       return;
     }
     const sizeName = currentItem?.variations.find(variation => variation.size_id === selectedSize)?.size_name;
+    const color_name = currentItem?.color_name;
 
-    addToCart(selectedProduct, currentItem, selectedSize, sizeName || '');
+    addToCart(
+      selectedProduct, 
+      currentItem, 
+      selectedSize,
+      color_name || '',
+      sizeName || '');
     toast.success(`${selectedProduct.product_name} añadido al carrito`);
     setSelectedSize('');
   };
