@@ -16,7 +16,9 @@ interface CartStore {
   addToCart: (
     product: ProductResponse,
     selectedItem: ProductItem,
-    size_id: string
+    size_id: string,
+    size_name: string,
+    color_name: string
   ) => void;
 
   removeFromCart: (itemId: string, size_id?: string) => void;
@@ -33,12 +35,13 @@ export const useCart = create<CartStore>()(
       isCartOpen: false,
 
       // 🔹 Añadir producto al carrito
-      addToCart: (product, selectedItem, size_id) => {
+      addToCart: (product, selectedItem, size_id, size_name, color_name) => {
         const existingItemIndex = get().productItems.findIndex(
           (item) =>
             item.product_id === product.product_id &&
             item.color_id === selectedItem.color_id &&
-            item.size_id === size_id
+            item.size_id === size_id &&
+            item.color_name === selectedItem.color_name
         );
 
         if (existingItemIndex > -1) {
@@ -53,8 +56,10 @@ export const useCart = create<CartStore>()(
             product_name: product.product_name,
             description: product.description,
             color_id: selectedItem.color_id,
+            color_name: color_name,
             hexadecimal: selectedItem.hexadecimal,
             size_id: size_id,
+            size_name: size_name,
             quantity: 1,
             original_price: selectedItem.original_price,
             sale_price: selectedItem.sale_price,

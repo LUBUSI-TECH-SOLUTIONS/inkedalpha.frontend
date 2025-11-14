@@ -3,7 +3,6 @@ import type { ProductResponse } from "@/app/service/products/productType";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-// Añadimos un tipo extendido con fecha de cache
 interface CachedProduct extends ProductResponse {
   cachedAt?: number;
 }
@@ -20,7 +19,7 @@ interface ProductStore {
   resetProducts(): void;
 }
 
-const CACHE_EXPIRATION = 1000 * 60 * 10; // 10 minutos
+const CACHE_EXPIRATION = 1000 * 60 * 10;
 
 export const useProduct = create<ProductStore>()(
   persist(
@@ -29,7 +28,6 @@ export const useProduct = create<ProductStore>()(
       isLoading: false,
       selectedProduct: undefined,
 
-      // 🔹 Obtiene todos los productos
       fetchProducts: async (_lang) => {
         set({ isLoading: true });
         try {
@@ -50,11 +48,9 @@ export const useProduct = create<ProductStore>()(
         }
       },
 
-      // 🔹 Obtiene un solo producto (usa cache si está fresco)
       fetchSingleProduct: async (product, _lang) => {
         const { selectedProduct } = get();
 
-        // Si el producto ya está seleccionado y no ha expirado, úsalo
         if (
           selectedProduct &&
           selectedProduct.product_id === product.product_id &&
@@ -63,7 +59,6 @@ export const useProduct = create<ProductStore>()(
         ) return;
 
 
-        // Si no, haz la solicitud al backend
         set({ isLoading: true });
         try {
           const response = await ProductService.getAllProducts({
@@ -77,7 +72,6 @@ export const useProduct = create<ProductStore>()(
             ? response.data[0]
             : response.data;
 
-          // Guardamos el producto con timestamp
           set({
             selectedProduct: { ...data, cachedAt: Date.now() },
           });
@@ -88,10 +82,8 @@ export const useProduct = create<ProductStore>()(
         }
       },
 
-      // 🔹 Selecciona manualmente un producto (por ejemplo desde una lista)
       selectProduct: (product) => set({ selectedProduct: { ...product, cachedAt: Date.now() } }),
 
-      // 🔹 Restaura la lista base
       resetProducts: () => set({ products: []}),
     }),
     {
@@ -101,5 +93,5 @@ export const useProduct = create<ProductStore>()(
         selectedProduct: state.selectedProduct,
       }),
     }
-  )
+  ) 
 );
