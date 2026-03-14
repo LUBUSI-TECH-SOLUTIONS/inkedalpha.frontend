@@ -25,10 +25,8 @@ export const ShoppingCart = () => {
     0
   );
 
-  // ---- Estado principal ----
   const [products, setProducts] = useState<typeof productItems>([]);
 
-  // ---- Cargar productos desde productItems ----
   const handleAddProduct = () => {
     if (!Array.isArray(productItems)) {
       console.error("productItems no es un arreglo válido");
@@ -40,10 +38,9 @@ export const ShoppingCart = () => {
       return;
     }
 
-    setProducts([...productItems]); // Reemplaza el estado con la lista actual
+    setProducts([...productItems]);
   };
 
-  // ---- Generar mensaje dinámico para WhatsApp ----
   const generarMensaje = () => {
     if (!products || products.length === 0) {
       return "No hay productos seleccionados";
@@ -71,7 +68,7 @@ export const ShoppingCart = () => {
 
     const texto = `Hola! Me interesa comprar los siguientes productos:%0A%0A${lista}%0A%0ADetalles:%0A%0A${detalle}`;
 
-    return `https://wa.me/+573106189254?text=${texto}`;
+    return `https://wa.me/+18503963545?text=${texto}`;
   };
 
   // ---- URL final del mensaje ----
