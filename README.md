@@ -1,387 +1,384 @@
-# 🎨 InkedAlpha Frontend
+# InkedAlpha Frontend
 
 ![Project status](https://img.shields.io/badge/status-activo-brightgreen)
 ![Last version](https://img.shields.io/github/v/release/LUBUSI-TECH-SOLUTIONS/inkedalpha.frontend)
 ![React](https://img.shields.io/badge/React-19.1.0-blue)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-blue)
 ![Vite](https://img.shields.io/badge/Vite-7.0.0-green)
- ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.1.11-cyan)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.1.11-cyan)
 
-> Modern e-commerce frontend for tattoo and custom apparel designs built with React, TypeScript, and TailwindCSS.
+> Storefront web para **InkedAlpha**, una tienda de ropa urbana/streetwear. Construido con React 19, TypeScript y Vite, con soporte multilenguaje, modo oscuro y checkout via WhatsApp.
 
-## 📌 Índice
+---
 
-- [Descripción](#-descripción)
-- [Características](#-características)
-- [Tech Stack](#-tech-stack)
-- [Estructura del Proyecto](#-estructura-del-proyecto)
-- [Instalación](#-instalación)
-- [Configuración](#-configuración)
-- [Uso](#-uso)
-- [Scripts Disponibles](#-scripts-disponibles)
-- [Configuraciones](#-configuraciones)
-- [Contribuidores](#-contribuidores)
-- [Licencia](#-licencia)
-- [Última Modificación](#-última-modificación)
+## Indice
 
-## 📌 Descripción
+- [Descripcion](#descripcion)
+- [Caracteristicas](#caracteristicas)
+- [Tech Stack](#tech-stack)
+- [Estructura del Proyecto](#estructura-del-proyecto)
+- [Rutas](#rutas)
+- [Estado Global](#estado-global-zustand)
+- [Instalacion](#instalacion)
+- [Configuracion](#configuracion)
+- [Scripts Disponibles](#scripts-disponibles)
+- [API](#api)
+- [Deployment](#deployment)
+- [Contribucion](#contribucion)
+- [Licencia](#licencia)
 
-InkedAlpha Frontend es una aplicación web moderna de e-commerce especializada en diseños de tatuajes y ropa personalizada. La aplicación ofrece una experiencia de usuario fluida con soporte multiidioma, temas personalizables, y una arquitectura escalable basada en componentes reutilizables.
+---
 
-## 🚀 Características
+## Descripcion
 
-- 🎨 **Diseño Moderno**: UI/UX con componentes de Radix UI y TailwindCSS
-- 🌍 **Multiidioma**: Soporte completo con i18next
-- 🌙 **Temas**: Modo claro/oscuro con next-themes
-- 🛒 **E-commerce**: Catálogo de productos con carrito de compras
-- 📱 **Responsive**: Totalmente adaptable a dispositivos móviles
-- ⚡ **Performance**: Optimizado con Vite y React SWC
-- 🔄 **Estado Global**: Gestión de estado con Zustand
-- 🎠 **Carousels**: Galerías interactivas con Embla Carousel
-- 🔍 **Navegación**: Sistema de rutas con React Router
-- 🎯 **TypeScript**: Tipado estático completo
-- 📦 **Componentes**: Sistema de diseño basado en shadcn/ui
+InkedAlpha Frontend es una aplicacion web de e-commerce especializada en ropa urbana con disenos de tatuajes y arte personalizado. Ofrece una experiencia de usuario fluida con soporte multiidioma (ES/EN), temas claro/oscuro, catalogo de productos dinamico y checkout integrado via WhatsApp.
 
-## 🛠️ Tech Stack
+---
 
-### Frontend Core
-- **React 19.1.0** - Biblioteca de UI
-- **TypeScript 5.8.3** - Lenguaje de programación
-- **Vite 7.0.0** - Build tool y dev server
-- **React Router 7.8.0** - Enrutamiento
+## Caracteristicas
+
+- **Catalogo de productos** con filtrado por categoria, seleccion de color/talla e indicadores de stock (disponible, bajo, agotado)
+- **Carrito de compras** persistente en `localStorage` con manejo de cantidades
+- **Checkout via WhatsApp** — genera un mensaje formateado con los productos y abre WhatsApp Web directamente
+- **Multilenguaje** (Espanol / Ingles) con deteccion automatica del navegador
+- **Modo oscuro / claro** persistente, oscuro por defecto
+- **Loading skeletons** en listas de productos y paginas de detalle
+- **Cache de productos** con expiracion de 10 minutos en `localStorage`
+- **Diseno responsive** — mobile, tablet y desktop
+- **Fuentes y estetica personalizadas** con efecto neon y paleta urbana
+
+---
+
+## Tech Stack
+
+### Core
+| Tecnologia | Version | Rol |
+|---|---|---|
+| React | 19.1.0 | Framework UI |
+| TypeScript | 5.8.3 | Lenguaje |
+| Vite + SWC | 7.0.0 | Build tool y dev server |
+| React Router | 7.8.0 | Enrutamiento |
 
 ### Styling & UI
-- **TailwindCSS 4.1.11** - Framework CSS utilitario
-- **Radix UI** - Componentes primitivos accesibles
-- **Lucide React** - Librería de iconos
-- **shadcn/ui** - Sistema de componentes
+| Tecnologia | Version | Rol |
+|---|---|---|
+| TailwindCSS | 4.1.11 | Framework CSS utilitario |
+| Radix UI | varios | Componentes primitivos accesibles |
+| shadcn/ui | — | Sistema de componentes (variante New York) |
+| Lucide React | 0.525.0 | Iconos |
+| Embla Carousel | 8.6.0 | Slider/carrusel |
+| next-themes | 0.4.6 | Gestion de temas claro/oscuro |
+| Sonner | 2.0.7 | Notificaciones toast |
 
-### State Management & Data
-- **Zustand 5.0.6** - Gestión de estado global
-- **Axios 1.11.0** - Cliente HTTP
-- **i18next** - Internacionalización
+### Estado y datos
+| Tecnologia | Version | Rol |
+|---|---|---|
+| Zustand | 5.0.8 | Estado global |
+| Axios | 1.12.2 | Cliente HTTP |
+| i18next | 25.3.4 | Internacionalizacion |
+| react-i18next | 15.6.1 | Integracion React i18n |
 
-### Development Tools
-- **ESLint** - Linting
-- **Better Commits** - Commits convencionales
-- **SWC** - Compilador rápido para React
+### Herramientas de desarrollo
+| Tecnologia | Rol |
+|---|---|
+| ESLint 9 | Linting |
+| Better Commits | Commits convencionales |
+| class-variance-authority | Variantes de componentes |
+| clsx + tailwind-merge | Utilidades de clases CSS |
 
-## 📁 Estructura del Proyecto
+---
+
+## Estructura del Proyecto
 
 ```
 inkedalpha.frontend/
-├── public/                          # Assets estáticos
-│   ├── background/                  # Imágenes de fondo
-│   ├── fonts/                       # Fuentes personalizadas
-│   ├── images/                      # Imágenes del sitio
-│   │   ├── banners/                # Banners promocionales
-│   │   ├── logo/                   # Logotipos
-│   │   └── products/               # Imágenes de productos
-│   └── logos/                      # Logos adicionales
+├── public/
+│   ├── background/              # Imagenes de fondo
+│   ├── fonts/                   # Fuentes personalizadas (Manu, Copperplate - WOFF)
+│   ├── images/
+│   │   ├── banners/             # Banners promocionales
+│   │   ├── logo/                # Logotipos
+│   │   └── products/            # Imagenes de productos
+│   └── logos/
 │
-├── src/                            # Código fuente
-│   ├── app/                        # Configuración principal
-│   │   ├── components/             # Componentes globales
-│   │   │   ├── changeLenguage.tsx  # Selector de idioma
-│   │   │   ├── themeProvider.tsx   # Proveedor de temas
-│   │   │   └── typewriterText.tsx  # Efecto de texto
-│   │   ├── dataExample/            # Datos de prueba
-│   │   ├── hooks/                  # Hooks personalizados
-│   │   ├── i18n/                   # Configuración i18n
-│   │   ├── layouts/                # Layouts de la app
-│   │   │   └── components/         # Componentes del layout
-│   │   ├── routes/                 # Configuración de rutas
-│   │   ├── store/                  # Stores de Zustand
-│   │   └── apiClient.ts            # Cliente API
+├── src/
+│   ├── app/
+│   │   ├── apiClient.ts         # Cliente Axios singleton con deduplicacion y timeouts
+│   │   ├── App.tsx              # Root con Router y ThemeProvider
+│   │   ├── components/
+│   │   │   ├── changeLenguage.tsx   # Selector de idioma
+│   │   │   ├── themeProvider.tsx    # Proveedor de temas
+│   │   │   └── typewriterText.tsx   # Efecto typewriter animado
+│   │   ├── hooks/
+│   │   │   └── useTypewriter.ts
+│   │   ├── i18n/
+│   │   │   └── i18n.ts              # Config i18next (ES/EN embebido en codigo)
+│   │   ├── layouts/
+│   │   │   ├── layoutMain.tsx       # Layout principal con Header y Footer
+│   │   │   └── components/
+│   │   │       ├── header.tsx
+│   │   │       ├── footer.tsx
+│   │   │       └── search.tsx
+│   │   ├── routes/
+│   │   │   └── routes.tsx           # Definicion de rutas con React Router
+│   │   ├── service/
+│   │   │   ├── category/
+│   │   │   │   ├── categoryService.ts
+│   │   │   │   └── categoryType.ts
+│   │   │   └── products/
+│   │   │       ├── productService.ts    # Llamadas API de productos
+│   │   │       └── productType.ts       # Interfaces TypeScript
+│   │   └── store/                       # Stores Zustand
+│   │       ├── cart/useCart.ts          # Carrito (persistente localStorage)
+│   │       ├── category/useCategory.ts
+│   │       ├── product/useProduct.ts    # Productos con cache TTL
+│   │       └── lenguageStateStore.ts
 │   │
-│   ├── components/                 # Componentes reutilizables
-│   │   └── ui/                     # Componentes UI base
+│   ├── components/
+│   │   └── ui/                          # Componentes shadcn/ui
+│   │       ├── button.tsx
+│   │       ├── card.tsx
+│   │       ├── carousel.tsx
+│   │       ├── product-cart.tsx
+│   │       ├── skeleton.tsx
+│   │       ├── tabs.tsx
+│   │       ├── sonner.tsx
+│   │       └── ...
 │   │
-│   ├── features/                   # Funcionalidades por módulos
-│   │   ├── about/                  # Página About
-│   │   ├── category/               # Páginas de categorías
-│   │   ├── home/                   # Página principal
-│   │   ├── product/                # Páginas de productos
-│   │   └── shop/                   # Tienda
+│   ├── entities/
+│   │   └── product/types.ts             # Tipos de dominio
 │   │
-│   ├── entities/                   # Tipos y entidades
-│   │   └── product/               # Entidades de productos
+│   ├── features/                        # Paginas y logica por feature
+│   │   ├── about/                       # Pagina About con historia de marca
+│   │   ├── cart/
+│   │   │   ├── cart.tsx                 # Panel de carrito (Sheet overlay)
+│   │   │   └── utils/useMessageProducts.ts  # Generador de mensaje WhatsApp
+│   │   ├── category/
+│   │   ├── home/                        # Landing page con hero + categorias + productos
+│   │   ├── product/                     # Detalle de producto (imagenes, color, talla)
+│   │   └── shop/
 │   │
-│   ├── lib/                       # Utilidades
-│   ├── assets/                    # Assets del código
-│   ├── index.css                  # Estilos globales
-│   ├── main.tsx                   # Punto de entrada
-│   └── vite-env.d.ts             # Tipos de Vite
+│   ├── lib/utils.ts                     # cn(), formatCurrency()
+│   ├── index.css                        # Estilos globales (Tailwind imports)
+│   └── main.tsx                         # Entry point
 │
-├── .better-commits.json           # Configuración commits
-├── components.json                # Configuración shadcn/ui
-├── eslint.config.js              # Configuración ESLint
-├── package.json                  # Dependencias
-├── tsconfig.json                 # Configuración TypeScript
-├── vite.config.ts               # Configuración Vite
-└── README.md                    # Este archivo
+├── .better-commits.json
+├── .env                                 # Variables de entorno (no commitear)
+├── components.json                      # Config shadcn/ui
+├── eslint.config.js
+├── package.json
+├── tsconfig.json
+└── vite.config.ts
 ```
 
-## 📦 Instalación
+---
+
+## Rutas
+
+| Ruta | Pagina | Descripcion |
+|---|---|---|
+| `/` | HomePage | Hero, categorias destacadas, productos |
+| `/shop` | ShopPage | Catalogo completo |
+| `/category` | CategoryPage | Todas las categorias |
+| `/category/:id_category` | CategoryPage | Filtrada por categoria |
+| `/product/:id_product` | ProductPage | Detalle de producto (imagenes, color, talla, stock) |
+| `/about` | AboutPage | Historia y valores de la marca |
+
+---
+
+## Estado Global (Zustand)
+
+| Store | Persistencia | Responsabilidades |
+|---|---|---|
+| `useCart` | `localStorage` (`cart-storage`) | Items del carrito, visibilidad del panel, totales, cantidad por item |
+| `useProduct` | `localStorage` (`product-storage`) | Lista de productos, producto seleccionado, cache con TTL 10 min |
+| `useCategory` | No | Categorias disponibles |
+| `useLanguageStore` | No | Idioma activo |
+
+El carrito se sanitiza automaticamente al rehidratar para evitar datos corruptos.
+
+---
+
+## Instalacion
 
 ### Requisitos previos
 
-- 🟢 **Node.js** >= 18.0.0
-- 📦 **Bun** >= 1.0.0 (recomendado) o npm/yarn
-- 🌐 **Git**
+- **Node.js** >= 18.0.0
+- **npm** >= 9 o **Bun** >= 1.0 (recomendado)
+- **Git**
 
-### Pasos de instalación
+### Pasos
 
 ```bash
-# Clonar el repositorio
+# 1. Clonar el repositorio
 git clone https://github.com/LUBUSI-TECH-SOLUTIONS/inkedalpha.frontend.git
-
-# Ingresar al directorio
 cd inkedalpha.frontend
 
-# Instalar dependencias
+# 2. Instalar dependencias
+npm install
+# o con bun
 bun install
-# o con npm
-# npm install
+
+# 3. Configurar variables de entorno
+cp .env.example .env   # editar con la URL del backend
 ```
 
-## ⚙️ Configuración
+---
+
+## Configuracion
 
 ### Variables de entorno
 
-Crea un archivo `.env.local` en la raíz del proyecto:
+Crea un archivo `.env` en la raiz del proyecto:
 
 ```env
-# API Configuration
-VITE_API_BASE_URL=http://localhost:3000/api
-VITE_APP_NAME=InkedAlpha
-
-# Development
-VITE_DEV_MODE=true
+# URL base del backend REST API
+VITE_API_URL_PROD=http://127.0.0.1:8000
 ```
 
-### Configuración de idiomas
+> Todas las variables deben llevar el prefijo `VITE_` para ser accesibles desde el cliente Vite.
 
-El proyecto soporta múltiples idiomas configurados en `src/app/i18n/i18n.ts`.
+### i18n
 
-## ▶️ Uso
+El proyecto soporta **Espanol** e **Ingles**. Las traducciones estan embebidas en `src/app/i18n/i18n.ts` y se detecta el idioma del navegador automaticamente. El usuario puede cambiarlo desde el header.
 
-### Desarrollo
+### Temas
 
-```bash
-# Iniciar servidor de desarrollo
-bun run dev
-# La aplicación estará disponible en http://localhost:5173
-```
+El tema oscuro esta activo por defecto. El usuario puede alternar entre claro/oscuro desde el header. La preferencia se persiste en `localStorage`.
 
-### Producción
-
-```bash
-# Generar build de producción
-bun run build
-
-# Vista previa del build
-bun run preview
-```
-
-## 📋 Scripts Disponibles
-
-| Script | Comando | Descripción |
-|--------|---------|-------------|
-| **dev** | `bun run dev` | Inicia el servidor de desarrollo |
-| **build** | `bun run build` | Genera el build de producción |
-| **lint** | `bun run lint` | Ejecuta ESLint para análisis de código |
-| **preview** | `bun run preview` | Vista previa del build de producción |
-
-## ⚙️ Configuraciones
-
-### shadcn/ui Configuration (`components.json`)
+### shadcn/ui (`components.json`)
 
 ```json
 {
-  "$schema": "https://ui.shadcn.com/schema.json",
   "style": "new-york",
-  "rsc": false,
-  "tsx": true,
-  "tailwind": {
-    "config": "",
-    "css": "src/index.css",
-    "baseColor": "neutral",
-    "cssVariables": true,
-    "prefix": ""
-  },
-  "aliases": {
-    "components": "@/components",
-    "utils": "@/lib/utils",
-    "ui": "@/components/ui",
-    "lib": "@/lib",
-    "hooks": "@/hooks"
-  },
+  "tailwind": { "baseColor": "neutral", "cssVariables": true },
+  "aliases": { "components": "@/components", "ui": "@/components/ui" },
   "iconLibrary": "lucide"
 }
 ```
 
-### TypeScript Configuration
+---
 
-El proyecto utiliza una configuración modular de TypeScript:
-- `tsconfig.json` - Configuración principal
-- `tsconfig.app.json` - Configuración de la aplicación
-- `tsconfig.node.json` - Configuración para Node.js
+## Scripts Disponibles
 
-### Vite Configuration (`vite.config.ts`)
+| Script | Comando | Descripcion |
+|---|---|---|
+| `dev` | `npm run dev` | Servidor de desarrollo en `http://localhost:5173` |
+| `build` | `npm run build` | Build de produccion (tsc + vite) |
+| `preview` | `npm run preview` | Preview del build de produccion |
+| `lint` | `npm run lint` | Analisis de codigo con ESLint |
 
-```typescript
-import { defineConfig } from 'vite'
-import path from "path"
-import tailwindcss from '@tailwindcss/vite';
-import react from '@vitejs/plugin-react-swc'
+---
 
-export default defineConfig({
-  plugins: [
-    react(), 
-    tailwindcss(),
-  ],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-  }
-})
+## API
+
+El cliente HTTP (`src/app/apiClient.ts`) es un **singleton Axios** con:
+- Deduplicacion de requests en vuelo via `Map`
+- Normalizacion de errores con notificaciones Sonner
+- Timeout de 90 segundos por defecto
+
+### Endpoint principal de productos
+
+```
+GET /v1/product
 ```
 
-### Better Commits Configuration
+| Parametro | Tipo | Descripcion |
+|---|---|---|
+| `lang` | `string` | Idioma (`es` / `en`) |
+| `product_id` | `string?` | ID de producto especifico |
+| `collection_id` | `string?` | Filtrar por coleccion |
+| `product_category_id` | `string?` | Filtrar por categoria |
+| `include_details` | `boolean?` | Incluir detalles completos |
+| `single` | `boolean?` | Respuesta de producto unico |
 
-El proyecto utiliza `better-commits` para mantener commits convencionales:
+### Checkout WhatsApp
 
-**Tipos de commit disponibles:**
-- `feat` 🌟 - Nueva funcionalidad
-- `fix` 🐛 - Corrección de errores
-- `docs` 📚 - Cambios en documentación
-- `refactor` 🔨 - Refactorización de código
-- `perf` 🚀 - Mejoras de rendimiento
-- `test` 🚨 - Pruebas
-- `build` 🚧 - Sistema de build
-- `ci` 🤖 - Configuración CI
-- `chore` 🧹 - Tareas de mantenimiento
+El carrito genera un mensaje de texto formateado con los productos seleccionados (nombre, color, talla, cantidad) y redirige a WhatsApp Web con el numero de contacto configurado.
 
-## 🚀 Deployment
+---
 
-### Netlify (Recomendado)
+## Convenciones de commits
 
-El proyecto está configurado para deployment en Netlify:
+El proyecto usa [Better Commits](https://github.com/Everduin94/better-commits):
+
+```bash
+npx better-commits
+# o
+bunx better-commits
+```
+
+**Tipos:** `feat`, `fix`, `docs`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`
+**Scopes:** `app`, `shared`, `server`, `tools`
+
+---
+
+## Deployment
+
+### Netlify (recomendado)
 
 1. Conecta tu repositorio a Netlify
-2. Configuración de build:
-   - **Build command:** `bun run build`
-   - **Publish directory:** `dist`
+2. Build command: `npm run build`
+3. Publish directory: `dist`
 
-### Otros Proveedores
+### Vercel
 
-**Vercel:**
 ```bash
 npm i -g vercel
 vercel --prod
 ```
 
-**GitHub Pages:**
-```bash
-bun run build
-# Sube el contenido de dist/ a tu rama gh-pages
-```
+El plugin de Netlify esta disponible en `vite.config.ts` (comentado) para deployment automatico.
 
-## 🧪 Testing (Próximamente)
+---
 
-Planeado para implementar con Vitest:
+## Responsive Design
 
-```bash
-# Instalación de dependencias de testing
-bun add -d vitest @vitest/ui @vitest/coverage-v8
-bun add -d jsdom @testing-library/react @testing-library/jest-dom
+| Breakpoint | Rango |
+|---|---|
+| Mobile | 320px – 768px |
+| Tablet | 768px – 1024px |
+| Desktop | 1024px+ |
+| Large Desktop | 1440px+ |
 
-# Scripts de testing (a agregar)
-# "test": "vitest",
-# "test:ui": "vitest --ui",
-# "test:coverage": "vitest --coverage"
-```
+---
 
-## 📱 Responsive Design
-
-La aplicación está optimizada para:
-- 📱 **Mobile:** 320px - 768px
-- 💻 **Tablet:** 768px - 1024px
-- 🖥️ **Desktop:** 1024px+
-- 📺 **Large Desktop:** 1440px+
-
-## 🎨 Design System
-
-Basado en **shadcn/ui** con:
-- ✅ Componentes accesibles
-- 🎨 Temas personalizables
-- 📏 Tipografía consistente
-- 🌈 Paleta de colores neutral
-- 📐 Espaciado sistemático
-
-## 🔒 Variables de Entorno
-
-```env
-# Configuración de API
-VITE_API_BASE_URL=https://api.inkedalpha.com
-VITE_API_VERSION=v1
-
-# Configuración de la App
-VITE_APP_NAME=InkedAlpha
-VITE_APP_VERSION=1.0.0
-
-# Configuración de Desarrollo
-VITE_DEV_MODE=false
-VITE_SHOW_DEVTOOLS=false
-
-# Analytics (opcional)
-VITE_GA_ID=G-XXXXXXXXXX
-```
-
-## 🤝 Contribución
+## Contribucion
 
 1. Fork el proyecto
-2. Crea tu feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit tus cambios usando better-commits (`bunx better-commits`)
-4. Push a la branch (`git push origin feature/amazing-feature`)
-5. Abre un Pull Request
+2. Crea tu feature branch: `git checkout -b feature/mi-feature`
+3. Haz commit con better-commits: `npx better-commits`
+4. Push: `git push origin feature/mi-feature`
+5. Abre un Pull Request hacia `develop`
 
-### Estándares de código
+**Estandares:**
+- Usar TypeScript estricto sin `any` innecesario
+- Seguir convenciones de TailwindCSS (no CSS custom para componentes)
+- Ejecutar `npm run lint` antes de hacer commit
 
-- ✅ Usar TypeScript estricto
-- 🎨 Seguir las convenciones de TailwindCSS
-- 📝 Documentar componentes complejos
-- 🧪 Escribir pruebas para nuevas funcionalidades
-- 🔍 Ejecutar `bun run lint` antes de commit
+---
 
-## 👥 Contribuidores
-
-Personas que han contribuido a este proyecto:
+## Contribuidores
 
 <a href="https://github.com/LUBUSI-TECH-SOLUTIONS/inkedalpha.frontend/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=LUBUSI-TECH-SOLUTIONS/inkedalpha.frontend" />
 </a>
 
-## 📄 Licencia
+---
+
+## Licencia
 
 Este proyecto es propiedad de **LUBUSI TECH SOLUTIONS**. Todos los derechos reservados.
 
-## 🆘 Soporte
+---
 
-¿Necesitas ayuda? 
+## Soporte
 
-- 📧 **Email:** support@lubusitech.com
-- 💬 **Issues:** [GitHub Issues](https://github.com/LUBUSI-TECH-SOLUTIONS/inkedalpha.frontend/issues)
-- 📖 **Docs:** [Documentación del proyecto](https://docs.inkedalpha.com)
-
-## 📅 Última Modificación
-
-Este archivo fue actualizado por última vez el: `01/10/2025`
+- **Issues:** [GitHub Issues](https://github.com/LUBUSI-TECH-SOLUTIONS/inkedalpha.frontend/issues)
+- **Email:** support@lubusitech.com
 
 ---
 
 <div align="center">
-  <strong>🎨 Hecho con ❤️ por el equipo de LUBUSI TECH SOLUTIONS</strong>
+  Hecho con amor por el equipo de LUBUSI TECH SOLUTIONS
 </div>

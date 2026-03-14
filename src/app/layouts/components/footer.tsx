@@ -1,14 +1,14 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input";
-import { Facebook, Instagram, Twitter } from "lucide-react"
+import { Facebook, Instagram} from "lucide-react"
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 export const Footer = () => {
   const { t } = useTranslation();
   return (
-    <footer className="bg-black border-t border-ink-400 flex items-center justify-center">
-      <div className="py-12 container">
+    <footer className="bg-black border-t border-ink-400">
+      <div className="py-12 p-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="space-y-4">
@@ -22,20 +22,24 @@ export const Footer = () => {
                 />
               </div>
               <div className="text-xl md:text-2xl font-family-heading neon-text urban-text-shadow">
-                INKED<span className="text-400-foreground">ALPHA</span>
+                INKED<span className="text-ink-400">ALPHA</span>
               </div>
             </div>
             <p className="text-sm font-body body-text text-gray-400">{t('footer.description')}</p>
             <div className="flex space-x-4">
-              <Button size="icon" variant="ghost" className="hover:text-ink-400">
-                <Instagram className="h-4 w-4" />
-              </Button>
-              <Button size="icon" variant="ghost" className="hover:text-ink-400">
-                <Twitter className="h-4 w-4" />
-              </Button>
-              <Button size="icon" variant="ghost" className="hover:text-ink-400">
-                <Facebook className="h-4 w-4" />
-              </Button>
+              <a 
+                href="https://www.instagram.com/inkedalphafashion?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
+                >
+                <Button size="icon" variant="ghost" className="hover:text-ink-400">
+                  <Instagram className="h-4 w-4" />
+                </Button>
+              </a>
+              <a href="https://www.facebook.com/inkedalphatattoo" target="_blank">
+                <Button size="icon" variant="ghost" className="hover:text-ink-400">
+                  <Facebook className="h-4 w-4" />
+                </Button>
+              </a>
             </div>
           </div>
 
@@ -106,7 +110,7 @@ export const Footer = () => {
             </Link>
           </div>
         </div>
-      </div>  
+      </div>
     </footer>
   )
 }
